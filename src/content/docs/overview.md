@@ -1,91 +1,92 @@
 ---
-title: Overview
-description: An overview of why we built this starter, including its features, the libraries used, and more.
+title: 概述
+description: 关于我们为何构建这个入门套件的概述，包括其特性、使用的库等信息。
 head:
   - tag: title
-    content: Overview | React Native / Expo Starter
+    content: 概述 | React Native / Expo 入门套件
 ---
 
 欢迎来到Obytes移动部落的Expo / React Native入门套件！
 
 
-## 🚀 Motivation
+## 🚀  动机
 
-Our goal with this starter kit was to streamline the process of building React Native apps, both for our own team and for our clients. We wanted to create a resource that would allow us to create high-quality apps faster and with less effort, while ensuring that all of our projects adhere to the same code standards and architectural principles.
+我们创建这个入门套件的目标，是为我们自己的团队和客户简化构建 React Native 应用的过程。我们希望创建一个资源，让我们能够更快、更省力地构建高质量的应用，同时确保我们所有的项目都遵循相同的代码标准和架构原则。
 
-The benefits of using this starter kit are numerous. It helps our team easily switch between projects, as we can rely on a consistent foundation of code. It also allows us to focus on the business logic of each project rather than getting bogged down in boilerplate code. And, because it promotes consistency across projects, it makes it easier to maintain and scale our apps, as well as share code between teams.
+使用这个入门套件的好处很多。它帮助我们的团队在不同的项目间轻松切换，因为我们可以依赖一个一致的代码基础。它还能让我们专注于每个项目的业务逻辑，而不是陷入样板代码的泥潭。而且，因为它促进了项目间的一致性，所以使维护和扩展我们的应用以及在不同团队间共享代码变得更加容易。
 
-Overall, our starter kit is designed to facilitate efficient and effective app development, helping us to bring the best possible products to our clients
+总的来说，我们的入门套件旨在促进高效和有效的应用开发，帮助我们为客户提供最好的产品。
 
-## ✍️ Philosophy
 
-When creating this starter kit, we had several guiding principles in mind::
+## ✍️ 理念
 
-- **🚀 Production-ready**: We wanted to ensure that this starter was ready for real-world use, providing a solid foundation for building production-grade apps.
-- **🥷 Developer experience and productivity**: Our focus was on creating a starter that would enhance the developer experience and increase productivity.
-- **🧩 Minimal code and dependencies**: We aimed to keep the codebase and dependencies as small as possible.
-- **💪 Well-maintained third-party libraries**: We included only well-maintained and reliable third-party libraries, to provide stability and support for our projects.
+在创建这个入门套件时，我们心中有几个指导原则：
 
-## ⭐ Key Features
+- **🚀 生产就绪**: 我们希望确保这个入门套件为实际生产使用做好准备，为构建生产级应用提供坚实的基础。
+- **🥷 开发体验与效率**: 我们的重点是创建一个能提升开发体验和提高效率的入门套件。
+- **🧩 最少的代码和依赖**: 我们的目标是尽可能保持代码库和依赖项的精简。
+- **💪 维护良好的第三方库**: 我们只包含维护良好且可靠的第三方库，为我们的项目提供稳定性和支持。
 
-- ✅ Latest Expo SDK with Custom Dev Client: Leverage the best of the Expo ecosystem while maintaining full control over your app.
-- 🎉 [TypeScript](https://www.typescriptlang.org/) for enhanced code quality and bug prevention through static type checking.
-- 💅 Minimal UI kit built with [TailwindCSS](https://www.nativewind.dev/), featuring common components essential for your app.
-- ⚙️ Multi-environment build support (Production, Staging, Development) using Expo configuration.
-- 🦊 Husky for Git Hooks: Automate your git hooks and enforce code standards.
-- 💡 Clean project structure with Absolute Imports for easier code navigation and management.
-- 🚫 Lint-staged: Run Eslint and TypeScript checks on Git staged files to maintain code quality.
-- 🗂 VSCode recommended extensions, settings, and snippets for an enhanced developer experience.
-- ☂️ Pre-installed [Expo Router](https://docs.expo.dev/router/introduction/) with examples for comprehensive app navigation.
-- 💫 Auth flow implementation using [Zustand](https://github.com/pmndrs/zustand) for state management and [react-native-mmkv](https://github.com/mrousavy/react-native-mmkv) for secure data storage.
-- 🛠 10+ [Github Actions](https://github.com/features/actions) workflows for building, releasing, testing, and distributing your app.
-- 🔥 [React Query](https://react-query.tanstack.com/) and [axios](https://github.com/axios/axios) for efficient data fetching and state management.
-- 🧵 Robust form handling with [react-hook-form](https://react-hook-form.com/) and [zod](https://github.com/colinhacks/zod) for validation, plus keyboard handling.
-- 🎯 Localization support with [i18next](https://www.i18next.com/), including Eslint for validation.
-- 🧪 Unit testing setup with [Jest](https://jestjs.io/) and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/).
-- 🔍 E2E testing capabilities with [Maestro](https://maestro.mobile.dev/) for comprehensive app testing.
+## ⭐ 关键特性
 
-## 🤔 Is this starter for me?
+- ✅ 最新的 Expo SDK 与自定义开发客户端：充分利用 Expo 生态系统的优势，同时保持对应用的完全控制。
+- 🎉 [TypeScript](https://www.typescriptlang.org/) 通过静态类型检查提高代码质量并预防错误。
+- 💅 基于 [TailwindCSS](https://www.nativewind.dev/) 构建的简约 UI 套件，包含应用所需的基本组件。
+- ⚙️ 支持多环境构建（生产、预发布、开发），使用 Expo 配置。
+- 🦊 用于 Git Hooks 的 Husky：自动化您的 Git 钩子并强制执行代码标准。
+- 💡 清晰的项目结构配合绝对路径导入，便于代码导航和管理。
+- 🚫 Lint-staged：在 Git 暂存文件上运行 Eslint 和 TypeScript 检查，以保持代码质量。
+- 🗂 VSCode 推荐的扩展、设置和代码片段，以提升开发体验。
+- ☂️ 预装 [Expo Router](https://docs.expo.dev/router/introduction/) ，并提供示例以实现全面的应用导航。
+- 💫 使用 [Zustand](https://github.com/pmndrs/zustand) 进行状态管理和 [react-native-mmkv](https://github.com/mrousavy/react-native-mmkv) 进行安全数据存储的身份验证流程实现。
+- 🛠 10+ 个 [Github Actions](https://github.com/features/actions) 工作流程，用于构建、发布、测试和分发您的应用。
+- 🔥 使用 [React Query](https://react-query.tanstack.com/) 和 [axios](https://github.com/axios/axios) 进行高效的数据获取和状态管理。
+- 🧵 强大的表单处理，使用 [react-hook-form](https://react-hook-form.com/) 和 [zod](https://github.com/colinhacks/zod) 进行验证，外加键盘处理。
+- 🎯 使用 [i18next](https://www.i18next.com/) 的本地化支持，包括用于验证的 Eslint。
+- 🧪 使用 [Jest](https://jestjs.io/) 和 [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) 的单元测试设置。.
+- 🔍 使用 [Maestro](https://maestro.mobile.dev/) 进行端到端（E2E）测试，实现全面的应用测试。
 
-Yes 😀
+## 🤔 这个入门套件适合我吗？
 
-This starter kit is designed to benefit a wide range of React Native developers, from beginners to experienced professionals. Here's why it might be a good fit for you:
+是的 😀
 
-1. **For beginners:** It provides a solid foundation with best practices and common solutions, helping you learn industry-standard approaches to React Native development.
+这个入门套件旨在让广泛的 React Native 开发者受益，从初学者到经验丰富的专业人士。以下是为什么它可能适合您的原因：
 
-2. **For experienced developers:** It offers a well-structured, production-ready setup that can save you time and effort in project initialization and configuration.
+1. **对于初学者：** 它提供了包含最佳实践和常见解决方案的坚实基础，帮助您学习行业标准的 React Native 开发方法。
 
-3. **For teams:** It ensures consistency across projects and team members, making it easier to onboard new developers and maintain code quality.
+2. **对于有经验的开发者：** 它提供了一个结构良好、生产就绪的设置，可以节省您在项目初始化和配置上的时间和精力。
 
-4. **For explorers:** Even if you prefer not to use starter kits, this project can serve as a valuable reference. You can explore the codebase, documentation, and architectural decisions to gain insights and potentially adopt specific solutions for your own projects.
+3. **对于团队：** 它确保项目和团队成员间的一致性，使新开发人员更容易上手并保持代码质量。
 
-5. **For learners:** The starter kit incorporates up-to-date libraries and patterns, offering an opportunity to familiarize yourself with current best practices in the React Native ecosystem.
+4. **对于探索者：** 即使您不喜欢使用入门套件，这个项目也可以作为一个有价值的参考。您可以探索其代码库、文档和架构决策，以获得灵感，并可能将特定的解决方案应用到您自己的项目中。
 
-6. **For AI-assisted development:** This starter kit works well with AI coding tools. It provides a solid structure and best practices that can guide AI-generated code. This helps ensure that AI assistance leads to high-quality, maintainable code that fits well within your project.
+5. **对于学习者：** 该入门套件融合了最新的库和模式，为您提供了熟悉 React Native 生态系统中当前最佳实践的机会。
 
-Remember, you don't have to use the entire starter kit as-is. Feel free to cherry-pick ideas, configurations, or code snippets that align with your project needs. Whether you're building a new app from scratch or looking to improve your existing development process, this starter kit can provide valuable insights and practical solutions.
+6. **对于 AI 辅助开发：** 这个入门套件与 AI 编码工具配合良好。它提供了可靠的结构和最佳实践，可以指导 AI 生成的代码。这有助于确保 AI 辅助产生高质量、可维护的代码，并很好地适应您的项目。
 
-## 😉 Why Expo and not React Native CLI?
+请记住，您不必完全照搬整个入门套件。请随时根据您的项目需求，挑选其中的思路、配置或代码片段。无论您是从头开始构建新应用，还是希望改进现有的开发流程，这个入门套件都能提供宝贵的见解和实用的解决方案。
 
-We have been using Expo as our main framework since the introduction of [Continuous Native Generation (CNG)](https://docs.expo.dev/workflow/continuous-native-generation/) concept and we are happy with the experience.
+## 😉 为什么选择 Expo 而不是 React Native CLI？
 
-I think this question is not valid anymore specially after the last React conference when the core react native team recommended using Expo for new projects.
+自从引入 [Continuous Native Generation (CNG)](https://docs.expo.dev/workflow/continuous-native-generation/) 概念以来，我们一直将 Expo 作为主要框架，并且对使用体验很满意。
 
-> "As of today, the only recommended community framework for React Native is Expo. Folks at Expo have been investing in the React Native ecosystem since the early days of React Native and as of today, we believe the developer experience offered by Expo is best in class." React native core team
+我认为这个问题已经不再有效，尤其是在上次 React 大会之后，React Native 核心团队推荐在新项目中使用 Expo。
 
-Still hesitating? Check out this [article](https://reactnative.dev/blog/2024/06/25/use-a-framework-to-build-react-native-apps) or this [video](https://www.youtube.com/watch?v=lifGTznLBcw), maybe this one [video](https://www.youtube.com/watch?v=ek_IdGC0G80) too.
 
-## 🧑‍💻 Stay up to date
+> "截至今天，唯一被推荐的 React Native 社区框架是 Expo。Expo 的团队从 React Native 早期就开始投资于其生态系统，截至今天，我们相信 Expo 提供的开发体验是一流的。" —— React Native 核心团队
 
-We are committed to continually improving our starter kit and providing the best possible resources for building React Native apps. To that end, we regularly add new features and fix any bugs that are discovered.
+还在犹豫吗？查看这篇 [文章](https://reactnative.dev/blog/2024/06/25/use-a-framework-to-build-react-native-apps) 或这个 [视频](https://www.youtube.com/watch?v=lifGTznLBcw)，或许还有这个 [视频](https://www.youtube.com/watch?v=ek_IdGC0G80)。
 
-If you want to stay up to date with the latest developments in our starter kit, you can either watch the repository or hit the "star" button. This will allow you to receive notifications whenever new updates are available.
+## 🧑‍💻 保持更新
 
-We value the feedback and contributions of our users, and we encourage you to let us know if you have any suggestions for improving our starter kit. We are always looking for ways to make it even more effective and useful for our community. So, please do not hesitate to reach out and share your thoughts with us.
+我们致力于持续改进我们的入门套件，并为构建 React Native 应用提供尽可能好的资源。为此，我们定期添加新功能并修复发现的所有错误。
 
+如果您想了解我们入门套件的最新进展，您可以关注（watch）该代码仓库或点击"star"按钮。这样您就可以在有新更新时收到通知。
+
+我们重视用户的反馈和贡献，并鼓励您告诉我们任何改进入门套件的建议。我们一直在寻找方法，使其对我们的社区更加有效和有用。所以，请随时联系我们并分享您的想法。
 <!-- add a gif image here  -->
 
-## 💎 Libraries used
+## 💎 使用的库
 
 - [Expo](https://docs.expo.io/)
 - [Expo Router](https://docs.expo.dev/router/introduction/)
@@ -109,12 +110,12 @@ We value the feedback and contributions of our users, and we encourage you to le
 - [Tailwind Variants](https://www.tailwind-variants.org/)
 - [Zod](https://zod.dev/)
 
-## Contributors
+## 贡献者
 
-This starter is maintained by [Obytes mobile tribe team](https://www.obytes.com/team) and we welcome new contributors to join us in improving it. If you are interested in getting involved in the project, please don't hesitate to open an issue or submit a pull request.
+此入门套件由 [Obytes 移动部落团队](https://www.obytes.com/team) 维护，我们欢迎新的贡献者加入我们一起改进它。如果您有兴趣参与此项目，请随时提出问题或提交拉取请求。
 
-In addition to maintaining this starter kit, we are also available to work on custom projects and help you build your dream app. If you are looking for experienced and reliable developers to bring your app vision to life, please visit our website at [obytes.com/contact](https://www.obytes.com/contact) to get in touch with us. We would be happy to discuss your project in more detail and explore how we can help you achieve your goals.
+除了维护这个入门套件，我们也承接定制项目，并帮助您构建梦想中的应用。如果您正在寻找经验丰富且可靠的开发人员来实现您的应用愿景，请访问我们的网站 [obytes.com/contact](https://www.obytes.com/contact) 与我们联系。我们很乐意更详细地讨论您的项目，并探讨我们如何帮助您实现目标。
 
-## ❓ FAQ
+## ❓ 常见问题
 
-If you have any questions about the starter and want answers, please check out the [Discussions](https://github.com/obytes/react-native-template-obytes/discussions) page.
+如果您对入门套件有任何疑问并希望得到解答，请查看 [Discussions](https://github.com/obytes/react-native-template-obytes/discussions) 页面。
