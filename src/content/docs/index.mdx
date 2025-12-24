@@ -1,0 +1,80 @@
+---
+title: Obytes 入门套件 | React Native/Expo 启动器
+description: "您构建卓越 React Native/Expo 应用程序的一站式解决方案。从编辑器设置到商店提交，我们为您提供全面支持！"
+template: splash
+lastUpdated: false
+hero:
+  title: 完美的 React Native 应用快速启动 🚀！
+  tagline: "您构建卓越 React Native/Expo 应用程序的一站式解决方案。从编辑器设置到商店提交，我们为您提供全面支持！"
+  image:
+    file: ../../assets/logo.webp
+  actions:
+    - text: 快速开始
+      link: /overview
+      icon: right-arrow
+      variant: primary
+    - text: 雇佣我们
+      link: https://obytes.com/contact?utm_source=starter.obytes.com
+      icon: external
+      variant: secondary
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import GithubStar from '../../components/GithubStar.astro';
+import About from '../../components/about.astro';
+import Reviews from '../../components/reviews.astro';
+
+<GithubStar />
+
+## Features
+
+<CardGrid stagger>
+	<Card title="最新的 Expo SDK + 开发客户端" icon="star">
+		我们采用最新的 Expo SDK 和 React Native 版本，以及自定义开发客户端功能，确保您可以安装任何包并完全掌控您的应用。
+	</Card>
+  <Card title="Expo 路由" icon="add-document">
+		预装最新版本的 Expo 路由，并包含示例，演示如何在您的应用中实现全面的导航功能。
+	</Card>
+  <Card title="10+ GitHub 工作流程" icon="open-book">
+    从运行类型检查、测试、代码检查、代码格式化，到生成新应用版本，以及使用 EAS Build 构建您的应用，所有配置均已就绪，开箱即用！
+  </Card>
+  <Card title="基于 Tailwind CSS 的简约 UI 套件" icon="open-book">
+		我们包含了一个简约的 UI，其中包含了您启动项目所需的大部分组件。它使用 Tailwind CSS 构建，非常易于定制。
+  </Card>
+	<Card title="VSCode 设置" icon="laptop">
+		为 Visual Studio Code (VSCode) 提供完整的推荐扩展、设置和代码片段列表，以提升开发体验和工作效率。
+	</Card>
+	<Card title="TS + Eslint + Prettier + Husky" icon="setting">
+		我们使用 TypeScript、Eslint、Prettier 和 Husky 来确保您的代码整洁且风格一致。无需再担心代码风格或提交不良代码！
+	</Card>
+	<Card title="完整的文档" icon="open-book">
+		我们提供了全面的文档集，帮助您快速上手项目，并理解我们的技术选型和设计决策。
+	</Card>
+	<Card title="支持多环境构建" icon="setting">
+		支持多个应用环境，并使用 Zod 提供强大的解决方案来管理和验证环境变量。它使您能在开发和部署过程中轻松在不同环境间切换。
+	</Card>
+
+<Card title="表单与键盘处理" icon="open-book">
+  我们使用 React Hook Form 进行表单管理，使用 Zod 进行验证，并为您的应用提供一组输入组件。我们还包含了键盘处理功能，以提供流畅的用户体验。
+</Card>
+<Card title="身份验证流程" icon="open-book">
+  我们包含了一个完整的身份验证流程，基于 Zustand 状态管理库和 `react-native-mmkv`（一种安全快速的解决方案）来存储令牌和其他敏感数据。
+</Card>
+
+  <Card title="React Query + Axios" icon="open-book">
+		我们使用 React Query 和 Axios 管理数据获取。这些强大的库使您能够轻松地在 React 应用中获取、缓存和更新数据。我们还包含一组 VSCode 代码片段，让您在创建查询和变更操作时更加轻松。
+	</Card>
+  <Card title="单元 + E2E测试" icon="document">
+		我们提供了完整的单元测试和端到端测试设置，使用 Jest 和 React Testing Library 进行单元测试，并使用 Meastro 进行端到端测试。这将帮助您为应用编写测试，确保其按预期运行。
+	</Card>
+</CardGrid>
+
+<Reviews />
+
+<About>
+
+除了维护这个入门套件，我们还提供定制项目和应用程序开发的专业服务。如果您正在寻找经验丰富、可靠的开发团队来实现您的应用愿景，请联系我们。让我们讨论您的项目，探索我们如何帮助您达成目标。
+
+[雇佣我们](https://obytes.com/contact?utm_source=starter.obytes.com)
+
+</About>
