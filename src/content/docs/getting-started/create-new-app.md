@@ -1,16 +1,16 @@
 ---
-title: Create a new App
-description: Let's create a new React native project with obytes starter.
+title: 创建新应用
+description: 让我们使用 obytes starter 创建一个 React Native 项目。
 head:
   - tag: title
-    content: Create a new App | React Native / Expo Starter
+    content: 创建新应用 | React Native / Expo Starter
 ---
 
-Let's create a new React Native project with Obytes starter.
+让我们使用 Obytes starter 创建一个全新的 React Native 项目。
 
-## Requirements
+## 环境要求
 
-First make sure you have the following tools installed on your machine:
+请先确保你的开发环境已安装以下工具：
 
 - [React Native dev environment ](https://reactnative.dev/docs/environment-setup)
 - [Node.js LTS release](https://nodejs.org/en/)
@@ -19,55 +19,54 @@ First make sure you have the following tools installed on your machine:
 - [Pnpm](https://pnpm.io/installation)
 - [Cursor](https://www.cursor.com/) is recommended but you can use [VS Code Editor](https://code.visualstudio.com/download).
 
-## Initializing a new project
+## 初始化新项目
 
-First make sure you have `pnpm` installed on your machine, if not you can install it using the following command:
+首先确保你的电脑上已安装 `pnpm`，如未安装可通过以下命令进行安装：
 
 ```bash
 npm install -g pnpm
 ```
 
-Start your project using `create-obytes-app` command:
+使用 `create-obytes-app` 命令开始创建你的项目：
 
 ```bash
 npx create-obytes-app@latest MyApp
 ```
 
-The command will create an expo app named `MyApp` and install all the dependencies added by the starter.
+上述命令将会创建一个名为 `MyApp` 的 Expo 应用，并自动安装 starter 所需的全部依赖。
 
 :::note
-Because we're using the Expo custom dev client to support native dependencies with the starter, The Expo Go app is not an option to consider here. Instead, you need to create the app and install it on your simulator or device to start using it.
+由于 starter 使用了 Expo custom dev client，以支持所有原生依赖，因此无法使用 Expo Go。你需要直接构建 App 并安装到你的模拟器或真实设备上进行开发和调试。
 :::
 
 :::note
-Adhere to Android's specific naming conventions as described in [the Android documentation](https://developer.android.com/build/configure-app-module).
-The name must satisfy the following rules:
+请严格遵循 Android 应用命名规范，详见 [Android 官方文档](https://developer.android.com/build/configure-app-module)。命名需符合以下要求：
 
-- It must have at least two segments (one or more dots).
-- Each segment must start with a letter.
-- All characters must be alphanumeric or an underscore [a-zA-Z0-9_].
-  :::
+- 必须包含至少两个段（即包含一个及以上的点）
+- 每个段必须以字母开头
+- 仅允许使用字母、数字或下划线 [a-zA-Z0-9_]
+:::
 
-## Open Project on Cursor or VS Code
+## 在 Cursor 或 VS Code 中打开项目
 
-Cursor is the recommended editor for this starter, The starter comes with a list of recommended extensions, settings and project snippets that we think will improve your coding experience.
+推荐使用 Cursor 作为本项目的代码编辑器。starter 已集成一系列推荐扩展、项目设置和代码片段，旨在提升你的开发体验。
 
-Open the project on Cursor using the following command:
+使用以下命令通过 Cursor 打开项目：
 
 ```bash
 cursor .
 ```
 
-When you open the project on Cursor you will see a popup asking you to install the recommended extensions, The easy way is to install all recommended extensions by clicking on `Install All` button.
+当你用 Cursor 打开项目时，会弹出提示安装推荐扩展。建议直接点击 `Install All`，一键安装全部推荐扩展。
 
-To ensure that your code is properly validated and formatted, we highly recommend installing all of the recommended extensions. However, if you're hesitant to install them all, we suggest at least installing the following extensions, as they are essential to our code validation and formatting on file save:
+为了确保代码能够被正确校验和格式化，强烈建议你安装全部推荐扩展。如果你不打算全部安装，至少应安装以下扩展，它们对代码校验和保存时的自动格式化至关重要：
 
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - [Tailwindcss IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
 - [Pretty TypeScript Errors](https://marketplace.visualstudio.com/items?itemName=yoavbls.pretty-ts-errors)
 
-Here is the complete list of recommended extensions:
+完整推荐扩展列表如下：
 
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
@@ -82,9 +81,9 @@ Here is the complete list of recommended extensions:
 - [i18n Ally](https://marketplace.visualstudio.com/items?itemName=lokallise.i18n-ally)
 - [Pretty TypeScript Errors](https://marketplace.visualstudio.com/items?itemName=yoavbls.pretty-ts-errors)
 
-## Running the app
+## 启动应用
 
-If the installation was successful, the created app should be ready to use, and because we are using the expo custom dev client, you may launch the app on your simulator or device by running the following command:
+如果依赖安装成功，项目即可直接使用。由于我们采用了 expo custom dev client，可通过以下命令在模拟器或真机上运行项目：
 
 ```bash
 # Run the app on iOS simulator

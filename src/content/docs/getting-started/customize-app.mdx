@@ -1,32 +1,32 @@
 ---
-title: Customize your App
-description: Customize your app by updating Expo configuration and app icon and splash screen.
+title: 自定义应用
+description: 通过更新 Expo 配置、应用图标和启动屏幕来自定义应用。
 head:
   - tag: title
-    content: Customize your App | React Native / Expo Starter
+    content: 自定义应用 | React Native / Expo Starter
 ---
 
 import Code from '../../../components/code.astro';
 
-The starter is a simple expo app. You just need to edit `app.config.ts` file to update expo attributes and configuration.
+该 starter 是一个简单的 Expo 应用。您只需编辑 `app.config.ts` 文件来更新 Expo 属性和配置。
 
-Here is the complete config file :
+以下是完整的配置文件：
 
 <Code file="app.config.ts" />
 
-You can read more about expo configuration [here](https://docs.expo.io/workflow/configuration/).
-If you have any configurations that depend on environment variables, such as API URLs or keys, you can create it in `config` file following [the environment variables guide](/getting-started/environment-vars-config) and import your config to `app.config.ts` file.
+您可以在[此处](https://docs.expo.io/workflow/configuration/)阅读有关 Expo 配置的更多信息。
+如果您有依赖环境变量的配置（如 API URLs 或密钥），可以按照[环境变量指南](/getting-started/environment-vars-config)在 `config` 文件中创建，然后将您的配置导入到 `app.config.ts` 文件中。
 
 :::note
-We included TODO comments in the project to guide you to the areas requiring updates.
+我们在项目中包含了 TODO 注释来指导您进行需要更新的区域。
 :::
 
-## Splash screen and app icon
+## 启动屏幕和应用图标
 
-As we are using expo to create the starter, updating the app icon and splash screen is straightforward. You only need to update the app icon and splash screen images inside the `assets` folder and run `expo prebuild` to update the app icon and splash screen.
+由于我们使用 Expo 创建 starter，更新应用图标和启动屏幕非常简单。您只需要更新 `assets` 文件夹中的应用图标和启动屏幕图像，然后运行 `expo prebuild` 命令来更新应用图标和启动屏幕。
 
-As we are supporting multiple variants for development, staging and production environments you need 3 different icons but the right solution is to use the same icon with badges for each environment.
+由于我们为开发、staging 和生产环境支持多个变体，您需要 3 个不同的图标，但正确的解决方案是对每个环境使用相同的图标并添加徽章。
 
-For more details about the app icon and splash screen, please refer to the expo documentation.
+有关应用图标和启动屏幕的更多详情，请参考 Expo 文档。
 
-👉 [Create a splash screen](https://docs.expo.dev/guides/splash-screens/)
+👉 [创建启动屏幕](https://docs.expo.dev/guides/splash-screens/)

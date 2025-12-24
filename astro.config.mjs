@@ -72,76 +72,76 @@ export default defineConfig({
       ],
       sidebar: [
         {
-          label: 'Overview',
+          label: '概述',
           link: '/overview',
         },
         {
-          label: 'Start Here',
+          label: '快速开始',
           items: [
             // Each item here is one entry in the navigation menu.
             {
-              label: 'Create New App',
+              label: '创建新应用',
               link: '/getting-started/create-new-app/',
             },
             {
-              label: 'Customize Your App',
+              label: '自定义应用',
               link: '/getting-started/customize-app/',
             },
             {
-              label: 'Rules and Conventions',
+              label: '规范与约定',
               link: '/getting-started/rules-and-conventions/',
             },
             {
-              label: 'Project Structure',
+              label: '项目结构',
               link: '/getting-started/project-structure/',
             },
             {
-              label: 'Environment Variables and Configurations',
+              label: '环境变量与配置',
               link: '/getting-started/environment-vars-config/',
             },
           ],
         },
 
         {
-          label: 'UI Components & Theming',
+          label: 'UI 组件与主题',
           items: [
             // Each item here is one entry in the navigation menu.
             {
-              label: 'UI & Theming',
+              label: 'UI 与主题',
               link: '/ui-and-theme/ui-theming/',
             },
             {
-              label: 'Fonts',
+              label: '字体',
               link: '/ui-and-theme/fonts/',
             },
             {
-              label: 'UI Components',
+              label: 'UI 组件',
               link: '/ui-and-theme/components/',
             },
             {
-              label: 'Forms',
+              label: '表单',
               link: '/ui-and-theme/forms/',
             },
           ],
         },
         {
-          label: 'Guides',
+          label: '使用指南',
           items: [
             // Each item here is one entry in the navigation menu.
             {
-              label: 'Navigation',
+              label: '导航',
               link: '/guides/navigation/',
             },
             {
-              label: 'Authentication',
+              label: '认证',
               link: '/guides/authentication/',
             },
             {
-              label: 'Data Fetching',
+              label: '数据获取',
               link: '/guides/data-fetching/',
             },
             {
-              label: 'Internationalization',
+              label: '国际化',
               link: '/guides/internationalization/',
             },
             {

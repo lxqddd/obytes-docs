@@ -1,6 +1,6 @@
 ---
-title: Rules and Conventions
-description: Rules and conventions that we follow in the starter.
+title: 规则与约定
+description: 本 Starter 遵循并强制执行的规则与约定。
 head:
   - tag: title
     content: Rules and Conventions | React Native / Expo Starter
@@ -8,77 +8,77 @@ head:
 
 import Code from '../../../components/code.astro';
 
-In order to enforce a consistent code style and avoid common issues in the codebase, we have a set of rules and conventions that we follow and enforce through the starter.
+为了保证代码风格一致性并避免常见问题，我们制定并在此 Starter 项目中强制执行一系列规则与约定。
 
 ## Typescript
 
-This starter uses TypeScript to provide type safety and avoid common bugs in the codebase. The project configuration is based on Expo config with some updates to support absolute imports.
+本 Starter 使用 TypeScript 提供类型安全，减少常见的代码缺陷。项目配置基于 Expo config，并做了部分调整以支持绝对路径导入。
 
-If you are not familiar with Typescript, you can check this article to learn more about it : [Typescript for React Developers](https://elazizi.com/posts/how-to-learn-typescript-for-react-developers/)
+如需了解 TypeScript，可参考此文：[Typescript for React Developers](https://elazizi.com/posts/how-to-learn-typescript-for-react-developers/)
 
-You can find more information about it [here](https://docs.expo.io/guides/typescript/).
+更多信息参见 [官方文档](https://docs.expo.io/guides/typescript/)。
 
-## Naming
+## 命名规范
 
-We follow kabab-case for naming files and folders as we think it's the most readable and consistent way to name files and folders in large projects and it's the most common way to name files and folders in the react native community.
+对于文件和文件夹命名，我们采用 kabab-case（短横线小写），这样在大型项目中更具可读性和一致性，同时也是 React Native 社区最常用的命名方式。
 
-Example of kabab-case naming: `my-component.tsx`
+kabab-case 命名示例：`my-component.tsx`
 
-For naming variables, functions, classes, interfaces, and enums, we follow camelCase as it's the most common way to name variables in the React community. It is enforced by the linter, as you cannot create a function component without using camelCase.
+变量、函数、类、接口及枚举命名时，遵循 camelCase（小驼峰）。这是 React 社区最通用的变量命名方式，且由 linter 强制约束，函数组件如果不用 camelCase 命名将无法通过校验。
 
-## Linting
+## 代码规范检查（Lint）
 
-Using a linter is a must in any JavaScript project. For starters, we are using ESLint with the React Native community config and some custom rules to ensure that we are following the rules and conventions related to file naming, Tailwind CSS classes, TypeScript types, import order, internationalization files, and more.
+在所有 JavaScript 项目中，使用 linter 是必不可少的。本 Starter 采用 ESLint，并基于 React Native 社区配置结合部分自定义规则，实现对文件命名、Tailwind CSS 类、TypeScript 类型、导入顺序、国际化文件等方面的约束和规范。
 
-Here is the complete ESLint configuration file:
+以下为完整的 ESLint 配置文件：
 
-<Code file=".eslintrc.js" />
+<Code file="eslint.config.mjs" />
 
-## Git Hooks with Husky
+## Husky Git 钩子
 
-The starter comes with a set of git hooks that help us to enforce rules and conventions. Those hooks are configured using [Husky](https://typicode.github.io/husky/#/). and here is the complete list of the hooks:
+本 Starter 配置了一系列 git 钩子，以辅助规则与约定的执行。这些钩子通过 [Husky](https://typicode.github.io/husky/#/) 进行管理，具体包括：
 
 ### pre-commit
 
-As the name suggest, this hook will run before each commit and it will make sure you are not committing directly on the main branch and it will run the linter and typescript checking on the staged files.
+此钩子会在每次提交前执行，确保不会直接提交到 main 分支，并对暂存文件进行 linter 和 TypeScript 校验。
 
 <Code file=".husky/pre-commit" language="bash" />
 
 ### post-merge
 
-As the name suggest, this hook will run after each merge and it will check if there is any changed in pnpm-lock.yaml and if there is any, it will run `pnpm install` to make sure the dependencies are up to date.
+此钩子在每次合并后执行，若 pnpm-lock.yaml 有变更，会自动运行 `pnpm install`，确保依赖项最新。
 
 <Code file=".husky/post-merge" language="bash" />
 
 ### commit-msg
 
-This hook will check if the commit message is following the conventional commit format. If it's not, the commit will be aborted and will show you what going wrong with your commit message.
+该钩子用于校验提交信息是否符合 conventional commit 规范。如不符合，提交会被中断，并显示错误原因。
 
 <Code file=".husky/commit-msg" language="bash" />
 
-We are using [commitlint](https://commitlint.js.org/#/) to check if the commit message is following the conventional commit format.
+我们使用 [commitlint](https://commitlint.js.org/#/) 校验提交信息是否符合 conventional commit 规范。
 
-In general, your commit message should follow this format:
+通常，提交信息应遵循以下格式：
 
 ```bash
-type(scope?): subject  #scope is optional; multiple scopes are supported (current delimiter options: "/", "\" and ",")
+type(scope?): subject  # scope 可选，支持多个作用域（当前分隔符支持："/", "\" 和 ","）
 ```
 
-Real world examples can look like this:
+实际示例：
 
 ```txt
-fix(ui): fix input width
-feat(ui): add button variants
-feat(api): add usePost query hook
+fix(ui): 修复 input 宽度
+feat(ui): 新增按钮样式
+feat(api): 新增 usePost 查询 hook
 ```
 
-`type` should be one of the following: build, chore, ci ,docs,feat,fix, perf, refactor, revert, style or test.
+`type` 可选值包括：build、chore、ci、docs、feat、fix、perf、refactor、revert、style 或 test。
 
-## 🔗 Resources
+## 🔗 相关资源
 
 - [Typescript for React Developers](https://elazizi.com/how-to-learn-type-script-for-react-developers)
-- [Typescript](https://docs.expo.io/guides/typescript/)
-- [Husky](https://typicode.github.io/husky/#/)
-- [commitlint](https://commitlint.js.org/#/)
+- [Typescript 官方文档](https://docs.expo.io/guides/typescript/)
+- [Husky 官方文档](https://typicode.github.io/husky/#/)
+- [commitlint 官方文档](https://commitlint.js.org/#/)
 - [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
-- [Eslint](https://eslint.org/)
+- [Eslint 官方网站](https://eslint.org/)

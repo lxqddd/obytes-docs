@@ -1,31 +1,31 @@
 ---
-title: Project Structure
-description: Project structure files and folders.
+title: 项目结构
+description: 项目的结构文件与文件夹说明。
 head:
   - tag: title
-    content: Project Structure | React Native / Expo Starter
+    content: 项目结构 | React Native / Expo Starter
 ---
 
 import { FileTree } from '@astrojs/starlight/components';
 import Code from '../../../components/code.astro';
 
-If you open the new project in VSCode you will see the following structure:
+如果你在 VSCode 中打开新项目，你将看到如下结构：
 
 <FileTree>
 
-- api ## any thing related to api calls and data fetching
+- api ## 与 api 调用和数据获取相关的内容
   - common/
   - index.tsx
   - posts
   - types.ts
-- app ## app routes and layouts
+- app ## 应用路由和布局
   - (app)/
   - \_layout.tsx
   - feed/
   - login.tsx
   - onboarding.tsx
-- components ## any reusable components
-  - ui ## core ui and theme configuration
+- components ## 可复用组件
+  - ui ## 核心UI和主题配置
     - button.tsx
     - checkbox.tsx
     - colors.js
@@ -50,7 +50,7 @@ If you open the new project in VSCode you will see the following structure:
   - settings/
   - title.tsx
   - typography.tsx
-- lib ## core files such as auth, localization, storage and more
+- lib ## 核心功能，如 auth、localization、storage 等
   - auth
   - env.js
   - hooks
@@ -61,49 +61,48 @@ If you open the new project in VSCode you will see the following structure:
   - test-utils.tsx
   - use-theme-config.tsx
   - utils.ts
-- translations ## translation resources files
+- translations ## 语言资源文件
   - ar.json
   - en.json
-- types ## global types
+- types ## 全局类型声明
   - index.ts
 
 </FileTree>
 
-- `components/ui`: This folder contains all the UI components and the theme configuration. We provide minimal components with a basic `obytes` theme. You can add your own components and theme configuration here.
+- `components/ui`：该文件夹包含所有的UI组件及主题配置。我们提供了基于 `obytes` 主题的基础组件，您可以在此添加自定义组件或主题配置。
 
-- `components`: This folder contains the components of the app. mainly components used inside the app folder.
+- `components`：该文件夹存放应用的各类组件，主要用于 `app` 目录下。
 
-- `lib`: This folder contains the core files, such as authentication, localization, storage, and more. It can be shared with other projects. That's why we are only including modules that have nothing to do with project logic. This approach helps us share code between projects and also update the starter with new features.
+- `lib`：该文件夹包含核心功能文件，例如 authentication、localization、storage 等，可在多个项目间共享。因此我们仅保留与业务无关的模块，这样更容易实现多项目的代码复用与 Starter 的升级。
 
-- `app`: This folder contains the routes of the app, along with its layout routes such as stack and tab navigation structures. We provide a basic navigation structure for the demo app that you can modify to fit your needs.
+- `app`：该文件夹用于存放应用的页面路由及其布局（如 stack/tab 等导航结构）。我们提供了基础导航结构，您可根据实际需求进行调整。
 
-- `api`: This folder contains the API files. We provide a basic API client and provider and you just need to create query and mutation for your modules. Check `posts` folder for inspiration on how to create a query and mutation.
+- `api`：该文件夹存放 API 相关功能。我们提供了基础 API client 和 provider，您只需为对应模块新增 query/mutation。可参考 `posts` 文件夹的实现方式。
 
-- `translations`: This folder contains the translation resources files. We recommend using translation files even if you are not supporting multiple languages as it will help you to support multiple languages in the future and also help you to find all the strings in one place.
+- `translations`：该文件夹用于存放翻译资源文件。即使当前只支持单一语言，也建议使用此机制，便于未来扩展多语言，也有助于统一管理文案内容。
 
-- `types`: This folder contains the global types.
+- `types`：该文件夹用于全局类型声明。
 
 :::note
-The structure is very opinionated but we think it's
-the best way to structure a react native project. For sure you can change it as you like based on your needs.
+该结构较为主观，但我们认为这是构建 React Native 项目的最佳实践。当然你可以根据自己的需求做适当调整。
 :::
 
-## Importing files
+## 文件导入
 
-We use absolute imports to import files using the Babel module resolver plugin and TypeScript path mapping. This approach helps us avoid long relative paths and makes the code cleaner and more readable.
+我们通过 Babel module resolver 插件与 TypeScript 路径配置，实现文件的绝对路径导入。这种方式可避免层层相对路径，使代码更清晰易读。
 
-Here is a simple example of how the Feed screen looks with absolute imports.
+以下为 Feed 页面使用绝对导入的简单示例：
 
 <Code file="src/app/(app)/index.tsx" meta="{4-7}" />
 
-This approach is very useful when you are working on a large project with a lot of files and folders and it can be done by updating the `babel.config.js` file and `tsconfig.json` file to the following:
+在大型项目中，这一做法尤为高效。只需如下配置 `babel.config.js` 与 `tsconfig.json` 文件即可：
 
 <details>
-  <summary>⚙️ Babel configuration</summary>
+  <summary>⚙️ Babel 配置</summary>
   <Code file="babel.config.js" meta="ins={8-27}" />
 </details>
 
 <details>
-  <summary>⚙️ Typescript Config</summary>
+  <summary>⚙️ TypeScript 配置</summary>
   <Code file="tsconfig.json" meta="ins={5-9}" />
 </details>
