@@ -1,30 +1,30 @@
 ---
-title: Internationalization
-description: How to add internationalization to your app.
+title: 国际化
+description: 如何为应用添加国际化支持。
 head:
   - tag: title
-    content: Internationalization | React Native / Expo Starter
+    content: 国际化 | React Native / Expo Starter
 ---
 
 import CodeBlock from '../../../components/code.astro';
 
-The starter comes with a basic internationalization setup. It uses [expo-localization](https://docs.expo.dev/guides/localization/) and [i18next](https://www.i18next.com/) to provide a simple way to translate your app.
+该模板附带了基本的国际化设置。它使用 [expo-localization](https://docs.expo.dev/guides/localization/) 和 [i18next](https://www.i18next.com/) 来提供一种简单的方式为您的应用添加翻译功能。
 
-## Adding a new language
+## 添加新语言
 
-Mainly the demo app supports two languages: English and Arabic (RTL). You can add more languages by adding the translation files in the `src/translations` folder and adding the language code to the `src/lib/i18n/resources.ts` file.
+演示应用主要支持两种语言：英语和阿拉伯语（RTL）。您可以通过在 `src/translations` 文件夹中添加翻译文件，并在 `src/lib/i18n/resources.ts` 文件中添加语言代码来添加更多语言。
 
 <CodeBlock file="src/lib/i18n/resources.ts" />
 
 :::tip
-Anything related to internationalization should be found in the `src/lib/i18n` folder.
+任何与国际化相关的内容都可以在 `src/lib/i18n` 文件夹中找到。
 :::
 
-## Using translations in your app
+## 在应用中使用翻译
 
-The i18n core module provides a set of utility functions to help you use translation in your app.
+i18n 核心模块提供了一组实用函数来帮助您在应用中使用翻译。
 
-- `useTranslation` hook from `react-i18next`: to get the translation function.
+- 来自 `react-i18next` 的 `useTranslation` 钩子：用于获取翻译函数。
 
 ```tsx
 import React from 'react';
@@ -42,7 +42,7 @@ export const Foo = () => {
 };
 ```
 
-or as `Text` component comes with translation support, you can easily use it as follows:
+或者由于 `Text` 组件内置了翻译支持，您可以轻松地按以下方式使用：
 
 ```tsx
 import React from 'react';
@@ -54,23 +54,23 @@ export const Foo = () => {
 };
 ```
 
-- `useSetLanguage` hook: to change the current language. This hook returns the selected language and a function to change the language.
+- `useSetLanguage` 钩子：用于更改当前语言。该钩子返回选定的语言和一个用于更改语言的函数。
 
-Additionally, the `useSetLanguage` hook will save the selected language in device storage using `MMKV` and will be used as the default language when the app is opened again As well as adding some extra config for RTL languages while updating the selected language.
+此外，`useSetLanguage` 钩子将使用 `MMKV` 将选定的语言保存在设备存储中，并在重新打开应用时作为默认语言使用，同时在更新选定语言时为 RTL 语言添加一些额外配置。
 
 <CodeBlock file="src/lib/i18n/utils.tsx" />
 
-## Robust translation
+## 健壮的翻译
 
-**Typescript support**
+**TypeScript 支持**
 
-To make the translation for your app more robust and easy to maintain, we have added TypeScript support for the translation function. This ensures that you are using the correct translation key and provide auto-completion for the translation keys.
-Here is an example of the error you will get if you are using the wrong translation key.
+为了使应用的翻译更加健壮和易于维护，我们为翻译函数添加了 TypeScript 支持。这确保您使用正确的翻译键，并为翻译键提供自动补全功能。
+以下是使用错误翻译键时会出现的错误示例。
 
 ![typescript-translation](https://github.com/obytes/react-native-template-obytes/assets/11137944/80a7a0fd-a6f8-4d31-a450-46de797ebdc6)
 
-## Eslint rules
+## ESLint 规则
 
-We have also added ESLint rules to ensure that your translation file resources are always up to date. These rules will run as a pre-commit hook whenever you attempt to commit changes to the translation files.
+我们还添加了 ESLint 规则来确保您的翻译文件资源始终保持最新。这些规则会在您尝试提交翻译文件更改时作为预提交钩子运行。
 
-We utilize [eslint-plugin-i18n-json](https://github.com/godaddy/eslint-plugin-i18n-json) alongside a customized validation script for i18next. This script helps sort keys, ensures that all resource files are identical and prevents any missing translations.
+我们使用 [eslint-plugin-i18n-json](https://github.com/godaddy/eslint-plugin-i18n-json) 配合自定义的 i18next 验证脚本。该脚本帮助排序键，确保所有资源文件都相同，并防止任何缺失的翻译。
