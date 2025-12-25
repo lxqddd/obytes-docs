@@ -1,39 +1,39 @@
 ---
-title: Forms
-description: How to handle forms with react-hook-form and controlled components.
+title: 表单
+description: 如何使用 react-hook-form 和受控组件处理表单。
 head:
   - tag: title
-    content: Forms | React Native / Expo Starter
+    content: 表单 | React Native / Expo Starter
 ---
 
 import CodeBlock from '../../../components/code.astro';
 
-Forms are a common feature of any application. In this section, we will show you how you can handle form the right way with the starter.
+表单是任何应用程序的常见功能。在本节中，我们将向您展示如何使用启动器正确处理表单。
 
 ## react-hook-form
 
-The starter uses [react-hook-form](https://react-hook-form.com/) to handle forms. It is a popular library that provides a lot of features out of the box. It is also very easy to use and integrate with React Native.
+启动器使用 [react-hook-form](https://react-hook-form.com/) 来处理表单。这是一个流行的库，开箱即用提供了很多功能。它也非常易于使用并与 React Native 集成。
 
-Make sure to check the [react-hook-form documentation](https://react-hook-form.com/) to learn more about how to use it.
+请务必查看 [react-hook-form 文档](https://react-hook-form.com/) 以了解更多使用方法。
 
-As we mention in the components section of the documentation [here](../components/), we create a set of controlled components that are only used with react-hook-form. The starter only provides two components: `ControlledInput` and `ControlledSelect` but you can easily create other components using the same approach.
+正如我们在文档的组件部分 [此处](../components/) 中提到的，我们创建了一组仅与 react-hook-form 一起使用的受控组件。启动器仅提供两个组件：`ControlledInput` 和 `ControlledSelect`，但您可以使用相同的方法轻松创建其他组件。
 
-Here is the complete code of our `ControlledInput` when we use `useController` hook from react-hook-form to handle form state and validation rules:
+以下是我们使用 react-hook-form 的 `useController` 钩子来处理表单状态和验证规则时的 `ControlledInput` 完整代码：
 
 <CodeBlock file="src/components/ui/input.tsx" />
 
-If you want to create your own controlled component, you just need to make sure your component props type extends from `InputControllerType` the same way we are using it with `ControlledInput`.
-Here is another example of a Select input we create using the same approach as `ControlledInput`:
+如果您想创建自己的受控组件，只需要确保您的组件属性类型以与 `ControlledInput` 相同的方式扩展自 `InputControllerType`。
+以下是我们使用与 `ControlledInput` 相同方法创建的选择输入组件的另一个示例：
 
 <CodeBlock file="src/components/ui/select.tsx" />
 
-## Use Case
+## 使用案例
 
-Let's say you want to create a form that allows the user to log in to the application. You will need to create a screen that contains the form with email and password fields, as well as a submit button. The form will need to be validated, and the data will need to be sent to the backend. Here's how you can do it:
+假设您想要创建一个允许用户登录应用程序的表单。您需要创建一个包含表单的屏幕，该表单具有电子邮件和密码字段，以及一个提交按钮。表单需要进行验证，数据需要发送到后端。以下是您可以如何实现的方法：
 
-**Step 1: Create your schema validation **
+**步骤 1：创建您的架构验证 **
 
-The right way to validate a form is to create a schema validation. You can use any library you want but we recommend using zod as you can easily infer the types from the schema. Here is how you can create a schema validation for the login form:
+验证表单的正确方法是创建架构验证。您可以使用任何您想要的库，但我们推荐使用 zod，因为您可以轻松地从架构推断类型。以下是如何为登录表单创建架构验证的方法：
 
 ```tsx
 import * as z from 'zod';
@@ -46,10 +46,10 @@ const schema = z.object({
 type FormType = z.infer<typeof schema>;
 ```
 
-**Step 2: Create your form component**
+**步骤 2：创建您的表单组件**
 
-Now that you have your schema validation, you can easily create your login screen using react-hook-form and the controlled components we already have.
-Here is how you can create your login screen:
+现在您有了架构验证，您可以轻松地使用 react-hook-form 和我们已有的受控组件创建您的登录屏幕。
+以下是如何创建您的登录屏幕的方法：
 
 ```tsx
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -98,17 +98,17 @@ export const Login = () => {
 };
 ```
 
-Done ! You have created a form with validation and typescript support.
+完成！您已经创建了一个带有验证和 TypeScript 支持的表单。
 
 :::tip
-Any Component with props that inherit from the `InputControllerType` can be used with react-hook-form. You can easily create your own controlled component using the same approach as `ControlledInput` and `ControlledSelect`.
+任何属性继承自 `InputControllerType` 的组件都可以与 react-hook-form 一起使用。您可以使用与 `ControlledInput` 和 `ControlledSelect` 相同的方法轻松创建自己的受控组件。
 :::
 
-## Handling Keyboard
+## 处理键盘
 
-The template comes with [`react-native-keyboard-controller`](https://kirillzyusko.github.io/react-native-keyboard-controller/) pre-installed and configured to handle the keyboard. You only need to check the [documentation](https://kirillzyusko.github.io/react-native-keyboard-controller/) and use the appropriate approach for your use case. ( note that we already added the `KeyboardProvider` to the layout in the root file)
+模板预装并配置了 [`react-native-keyboard-controller`](https://kirillzyusko.github.io/react-native-keyboard-controller/) 来处理键盘。您只需要查看 [文档](https://kirillzyusko.github.io/react-native-keyboard-controller/) 并为您的用例使用适当的方法。（请注意，我们已经在根文件中的布局里添加了 `KeyboardProvider`）
 
-Make sure to check the following video for more details on how to handle keyboard in react native:
+请务必查看以下视频以了解更多关于如何在 React Native 中处理键盘的详细信息：
 
 <div class="embed-container">
   <iframe
