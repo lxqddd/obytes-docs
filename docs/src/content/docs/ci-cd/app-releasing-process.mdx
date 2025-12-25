@@ -1,42 +1,42 @@
 ---
-title: App releasing process
-description: How to release your app to the App Store and Google Play
+title: 应用发布流程
+description: 如何将应用发布到 App Store 和 Google Play
 head:
   - tag: title
-    content: App releasing process | React Native / Expo Starter
+    content: 应用发布流程 | React Native / Expo Starter
 ---
 
 import CodeBlock from '../../../components/code.astro';
 
-Releasing your app to the App Store and Google Play or even to your QA team for real testing is a very important step in the app development process. Internally, we tend to release a new version of the app to our QA team by the end of each sprint(every week or two weeks). This way, we can get feedback from our team and test the app on real devices.
+将应用发布到 App Store 和 Google Play，或发布给 QA 团队进行真实设备测试，是应用开发过程中非常重要的一步。在内部，我们倾向于在每个冲刺结束时（每周或每两周）向 QA 团队发布新版本的应用。这样，我们可以从团队获得反馈，并在真实设备上测试应用。
 
-Doing this in a weekly basis requires automating the process as much as possible to gain time and avoid a lot of manual work.
+每周进行这种发布需要尽可能自动化流程，以节省时间并避免大量手动工作。
 
-To make this process as easy as possible, we use Github action and expo eas to build and release our app to the App Store and Google Play.
+为了尽可能简化这个过程，我们使用 GitHub Actions 和 Expo EAS 来构建和发布应用到 App Store 和 Google Play。
 
-## The Philosophy
+## 理念
 
-The philosophy behind this process is to have a single task that you should trigger to build and distribute the app. This task should be triggered manually by any developer on the team.
+这个过程背后的理念是拥有一个单一任务，你可以触发它来构建和分发应用。这个任务应该由团队中的任何开发者手动触发。
 
-The main idea is that we focus on the QA release process and push a new release to the QA team whenever our team pushes a new release to GitHub (at the end of the sprint). Whenever we feel that we are ready to push a new release to the App Store and Google Play, we can trigger a production release manually from the master branch or from the last GitHub release tag that has already been pushed to the QA team.
+主要思路是我们专注于 QA 发布流程，并在团队向 GitHub 推送新发布时（在冲刺结束时）向 QA 团队推送新版本。每当我们觉得准备好向 App Store 和 Google Play 推送新版本时，我们可以从主分支或已经推送给 QA 团队的最后一个 GitHub 发布标签手动触发生产发布。
 
-In conclusion, we have two types of releases:
+总之，我们有两种类型的发布：
 
-- **QA release**: This release is triggered automatically whenever a new github release is created. This release is used to distribute the app to the QA team for testing.
+- **QA 发布**：每当创建新的 GitHub 发布时，此发布会自动触发。此发布用于将应用分发给 QA 团队进行测试。
 
-- **Production release**: This release is triggered manually whenever we want to push a new release to the App Store and Google Play and can be build it based on the last GitHub release tag or from the master branch.
+- **生产发布**：每当我们想要向 App Store 和 Google Play 推送新发布时，此发布会手动触发，并且可以基于最后一个 GitHub 发布标签或从主分支构建。
 
 :::note
-We aim to simplify the process as much as possible. Depending on your requirements, you can take inspiration from this process and modify it to meet your needs.
+我们旨在尽可能简化这个过程。根据您的需求，您可以从这个过程中汲取灵感并修改以满足您的需求。
 :::
 
-## The Process
+## 流程
 
-The starter comes with a set of tools and tricks that help make the process as easy as possible.
+启动器附带了一套工具和技巧，帮助尽可能简化这个过程。
 
-### `app-release` npm script
+### `app-release` npm 脚本
 
-A simple npm script that run np package that helps us to manage the version of the app and push a new tag to GitHub.
+一个简单的 npm 脚本，运行 np 包帮助我们管理应用的版本并推送新标签到 GitHub。
 
 ```json
 {
@@ -47,48 +47,48 @@ A simple npm script that run np package that helps us to manage the version of t
 }
 ```
 
-If you run `pnpm run app-release`, it will ask you to choose the type of release (major, minor, patch). based on the type of release, it will update the version inside `package.json`.
+如果您运行 `pnpm run app-release`，它会要求您选择发布类型（major、minor、patch）。基于发布类型，它会在 `package.json` 中更新版本。
 
-As we use the version from package.json as app version inside `app-config.ts`, we just need to run the prebuild script to update App version inside the `ios` and `android` folders. The prebuild script will be executed automatically using a `version` script inside `package.json` that will handle the task for us. It will also add the changes to the commit that will be pushed to GitHub and create a new tag with the version number.
+由于我们在 `app-config.ts` 中使用 package.json 中的版本作为应用版本，我们只需要运行预构建脚本来更新 `ios` 和 `android` 文件夹中的应用版本。预构建脚本将使用 `package.json` 中的 `version` 脚本来自动执行任务。它还会将更改添加到提交中，该提交将被推送给 GitHub，并创建一个带有版本号的新标签。
 
-So technically, we just need to run `pnpm run app-release` and it will handle the rest for us. from updating native app version to pushing a new tag to GitHub.
+所以从技术上讲，我们只需要运行 `pnpm run app-release`，它就会为我们处理其余的一切。从更新原生应用版本到推送新标签到 GitHub。
 
-### GitHub actions and Expo EAS workflows
+### GitHub Actions 和 Expo EAS 工作流
 
-The starter comes with a set of GitHub workflows that use EXPO EAS to build and distribute the app to the App Store and Google Play.
+启动器附带了一套 GitHub 工作流，使用 EXPO EAS 来构建和分发应用到 App Store 和 Google Play。
 
-- `new-app-version.yml` : A workflow that run `app-release` script in order to update the app version and push a new tag to GitHub.
+- `new-app-version.yml`：运行 `app-release` 脚本来更新应用版本并推送新标签到 GitHub 的工作流。
 
-- `new-github-release.yml` : A workflow that is triggered whenever a new tag is pushed to GitHub. It will create a new GitHub release based on the tag name with the correct changelog.
+- `new-github-release.yml`：每当新标签推送给 GitHub 时触发的工作流。它将基于标签名称创建新的 GitHub 发布，并包含正确的变更日志。
 
-- `eas-build-qa.yml` : A workflow that is triggered whenever a new release is created on GitHub. It will build the app using EXPO EAS and based on the config it will distribute.
+- `eas-build-qa.yml`：每当在 GitHub 上创建新发布时触发的工作流。它将使用 EXPO EAS 构建应用，并基于配置进行分发。
 
-- `eas-build-prod.yml` : A workflow that is triggered manually whenever we want to push a new release to the App Store and Google Play. It will build the app using EXPO EAS and based on the config it will distribute.
+- `eas-build-prod.yml`：每当我们想要推送新发布到 App Store 和 Google Play 时手动触发的工作流。它将使用 EXPO EAS 构建应用，并基于配置进行分发。
 
-In conclusion, when you want to release a new QA version, manually execute `new-app-version.yml` with the correct release type. After successful execution, `new-github-release.yml` will be triggered automatically, followed by the automatic execution of `eas-build-qa.yml`. This will distribute the app to the QA team.
+总之，当您想要发布新的 QA 版本时，使用正确的发布类型手动执行 `new-app-version.yml`。成功执行后，`new-github-release.yml` 将自动触发，接着自动执行 `eas-build-qa.yml`。这将把应用分发给 QA 团队。
 
-## Setup Release Process to your app
+## 为您的应用设置发布流程
 
-To setup the release process to your app, you need to follow these steps:
+要为您的应用设置发布流程，您需要按照以下步骤操作：
 
-### Run Build Locally
+### 本地运行构建
 
-First, make sure to create an [Expo](expo.dev) account then create a new organization for your project.
+首先，确保创建一个 [Expo](expo.dev) 账户，然后为您的项目创建一个新组织。
 
-When then name of your organization is ready, you need to update the `EXPO_ACCOUNT_OWNER` variable in `env.js` file with the name of your organization.
+当您的组织名称准备就绪时，您需要在 `env.js` 文件中将 `EXPO_ACCOUNT_OWNER` 变量更新为您的组织名称。
 
-**For QA release:**
+**对于 QA 发布：**
 
 ```bash
 pnpm run prebuild:staging
 ```
 
-The above command will regenerate the iOS and Android folders based on the `staging` configuration.
+上述命令将基于 `staging` 配置重新生成 iOS 和 Android 文件夹。
 
-Then run the following command to build the app using EAS:
+然后运行以下命令使用 EAS 构建应用：
 
 :::caution
-You need to be logged in to EAS using `eas login` command before running this command. check [step 1 and 2 from EAS docs](https://docs.expo.dev/build/setup/) for more details.
+在使用此命令之前，您需要使用 `eas login` 命令登录 EAS。查看 [EAS 文档的步骤 1 和 2](https://docs.expo.dev/build/setup/) 以获取更多详情。
 :::
 
 ```bash
@@ -96,9 +96,9 @@ pnpm run build:staging:ios
 pnpm run build:staging:android
 ```
 
-The above commands will generate the required credentials for the build and store them in EAS servers so that we can use them later to trigger the build from GitHub actions.
+上述命令将生成构建所需的凭据，并将它们存储在 EAS 服务器中，以便我们稍后可以从 GitHub Actions 触发构建。
 
-**For production release:**
+**对于生产发布：**
 
 ```bash
 pnpm run prebuild:production
@@ -106,21 +106,21 @@ pnpm run build:production:ios
 pnpm run build:production:android
 ```
 
-In case you want to submit the app to the App Store and Google Play, you need to check eas submit configuration and follow the steps from [EAS docs](https://docs.expo.dev/submit/introduction/).
+如果您想要将应用提交到 App Store 和 Google Play，您需要检查 eas submit 配置，并按照 [EAS 文档](https://docs.expo.dev/submit/introduction/) 中的步骤操作。
 
-### Setup GitHub Actions
+### 设置 GitHub Actions
 
-All github workflows are already ready to be used in the starter. You just need to add the required secrets to your GitHub repo:
+启动器中所有的 GitHub 工作流都已准备好使用。您只需要将所需密钥添加到您的 GitHub 仓库中：
 
-- GH_TOKEN: A [Github token](https://github.com/settings/tokens) with access to your repo.
+- GH_TOKEN：具有访问您的仓库权限的 [GitHub 令牌](https://github.com/settings/tokens)。
 
-- EXPO_TOKEN: Expo token to authenticate with EAS. You can get generate yours [here](https://expo.dev/settings/access-tokens)
+- EXPO_TOKEN：用于向 EAS 进行身份验证的 Expo 令牌。您可以在 [此处](https://expo.dev/settings/access-tokens) 生成您的令牌
 
-### Github action and env variables
+### GitHub Actions 和环境变量
 
-For simplicity, we assume that all your environment variables are already added to your env files and have been pushed to your repository.
+为简单起见，我们假设您的所有环境变量都已添加到您的环境文件中，并已推送到您的仓库。
 
-If you prefer not to push env files (recommended), you need to add all your environment variables to GitHub secrets. Then, use `create-envfile` action to create the env file on the fly before the prebuild script.
+如果您不希望推送环境文件（推荐），您需要将所有环境变量添加到 GitHub 密钥中。然后，使用 `create-envfile` action 在预构建脚本之前动态创建环境文件。
 
 ```yaml
 ## .github/workflows/eas-build-prod.yml
@@ -139,22 +139,18 @@ If you prefer not to push env files (recommended), you need to add all your envi
     EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 ```
 
-This action will create a new env file `.env.production` with the `DEBUG` and `SECRET_KEY` variables you added to the action. so make sure to include all your env variables to the action.
+此 action 将创建一个新的环境文件 `.env.production`，其中包含您添加到 action 中的 `DEBUG` 和 `SECRET_KEY` 变量。因此，请确保将所有环境变量都包含在 action 中。
 
-## Create new release
+## 创建新发布
 
-For QA release, Go to your GitHub repo actions tab and run `new-app-version` workflow with the your desired release type.
+对于 QA 发布，转到您的 GitHub 仓库 Actions 标签页，使用您期望的发布类型运行 `new-app-version` 工作流。
 
 ![new-app-version](https://github.com/obytes/react-native-template-obytes/assets/11137944/efc62eda-a465-44ab-a185-860cfd2e9099)
 
-After successful execution, a new tag will be pushed to master and then `new-github-release` workflow will be triggered automatically and create a github release based on the tag name with the correct changelog.
+成功执行后，一个新标签将被推送给主分支，然后 `new-github-release` 工作流将自动触发，并基于标签名称创建 GitHub 发布，同时包含正确的变更日志。
 
 ![new-github-release](https://github.com/obytes/react-native-template-obytes/assets/11137944/d3b9d8ff-37f8-4551-97c1-4c9fbc8860d3)
 
-After that, `eas-build-qa` workflow will be triggered automatically and build the app using EAS and distribute it to the QA team.
+之后，`eas-build-qa` 工作流将自动触发，使用 EAS 构建应用并将其分发给 QA 团队。
 
-For production release, Go to your GitHub repo actions tab and run `eas-build-prod` workflow manually.
-
-```
-
-```
+对于生产发布，转到您的 GitHub 仓库 Actions 标签页，手动运行 `eas-build-prod` 工作流。
