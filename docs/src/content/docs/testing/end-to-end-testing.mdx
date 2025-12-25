@@ -1,49 +1,49 @@
 ---
-title: End-to-End Testing
-description: How to write end-to-end tests using Maestro
+title: 端到端测试
+description: 如何使用 Maestro 编写端到端测试
 head:
   - tag: title
-    content: End-to-End Testing | React Native / Expo Starter
+    content: 端到端测试 | React Native / Expo Starter
 ---
 
 import CodeBlock from '../../../components/code.astro';
 
-Writing end-to-end tests is one of the best ways to ensure that your app is working as expected and simulate exactly how a user would interact with it. However, running those tests can be challenging and time-consuming due to their nature and the need to run them on a device or emulator.
+编写端到端测试是确保应用按预期工作并精确模拟用户与应用交互的最佳方式之一。然而，由于端到端测试的特性以及需要在设备或模拟器上运行，这些测试的执行可能会具有挑战性和耗时性。
 
-The good news is that we have included [Maestro](https://www.mobile.dev/) the easiest way to run end-to-end tests yet very powerful and come up with a lot of features that will make your life easier.
+好消息是我们集成了 [Maestro](https://www.mobile.dev/)，这是目前运行端到端测试最简单却功能强大的工具，它提供了大量特性来让你的工作更轻松。
 
-One of Maestro's best features is its user-friendly test writing capability. It's incredibly simple to write tests using the app, making it accessible to PMs, QAs, and even designers.
+Maestro 最优秀的特性之一是其用户友好的测试编写能力。使用该工具编写测试非常简单，使得 PM、QA 甚至设计师都能轻松上手。
 
 :::tip
-Watch this talk by the amazing Henry Moulton for more details about Maestro and how it can help you write better tests: [Henry Moulton – React Native end-to-end testing with Maestro | App.js Conf 2023](https://www.youtube.com/watch?v=uoCzBdFCoqc)
+观看 Henry Moulton 的精彩演讲，了解更多关于 Maestro 的详细信息以及它如何帮助你编写更好的测试：[Henry Moulton – 使用 Maestro 进行 React Native 端到端测试 | App.js Conf 2023](https://www.youtube.com/watch?v=uoCzBdFCoqc)
 
 :::
 
-## Installing Maestro
+## 安装 Maestro
 
-To install Maestro, run the following :
+要安装 Maestro，请运行以下命令：
 
 ```bash
-# a simple npm script that runs the following command:  curl -Ls 'https://get.maestro.mobile.dev' | bash
+# 一个简单的 npm 脚本，运行以下命令：curl -Ls 'https://get.maestro.mobile.dev' | bash
 pnpm install-maestro
 ```
 
-## Writing tests
+## 编写测试
 
-Go to the `maestro` directory and write your tests.
-Here is a quick test we wrote for log in screen using Maestro:
+进入 `maestro` 目录编写你的测试。
+这里是我们使用 Maestro 为登录页面编写的一个快速测试：
 
-Read more about how to write end-to-end test with Maestro [here](https://maestro.mobile.dev/)
+在 [这里](https://maestro.mobile.dev/) 阅读更多关于如何使用 Maestro 编写端到端测试的信息
 
 <CodeBlock file=".maestro/auth/login-with-validation.yaml" />
 
-To run the tests, execute the following command:
+要运行测试，请执行以下命令：
 
 ```bash
 pnpm e2e-test
 ```
 
-This will run the tests on the local emulator and here is a recording of the test from maestro dashboard:
+这将在本地模拟器上运行测试，以下是从 Maestro 仪表板录制的测试视频：
 
 <video controls>
   <source
@@ -52,20 +52,20 @@ This will run the tests on the local emulator and here is a recording of the tes
   ></source>
 </video>
 
-## Running tests on CI
+## 在 CI 上运行测试
 
-Running tests on CI is very important to ensure that your code doesn't break when you push it to GitHub. However, running end-to-end tests is quite expensive and time-consuming. To test your app on CI, we need to first build the app, set up the emulator, and then run the tests. This process can consume a significant amount of time and resources.
+在 CI 上运行测试对于确保代码推送到 GitHub 时不会出现问题非常重要。然而，运行端到端测试相当昂贵且耗时。要在 CI 上测试应用，我们需要先构建应用、设置模拟器，然后运行测试。这个过程会消耗大量时间和资源。
 
-For this reason, we do not recommend running end-to-end tests on every pull request pushed to GitHub. Instead, we recommend running them for pull requests that contain `test-android` labels so that we can trigger the tests manually by adding the correct label whenever you feel the PR is ready to be tested.
+因此，我们不建议在每次推送到 GitHub 的拉取请求上都运行端到端测试。相反，我们建议只在包含 `test-android` 标签的拉取请求上运行，这样我们就可以在认为 PR 准备好测试时通过添加正确标签来手动触发测试。
 
-The starter comes with a bunch of GitHub actions that will help you run the tests on CI.
+该启动模板提供了多个 GitHub Actions 来帮助你在 CI 上运行测试。
 
-> for now we only support running tests on Android, we are working on adding support for iOS.
+> 目前我们只支持在 Android 上运行测试，我们正在努力添加对 iOS 的支持。
 
-- `e2e-android.yml` - Triggered when a PR is labeled with `android-test-github` or run manually from the actions tab in GitHub.
-  This action will generate a staging build for the app, set up the emulator, and run the tests using Maestro.
+- `e2e-android.yml` - 当 PR 被标记为 `android-test-github` 时触发，或从 GitHub 的 Actions 标签页手动运行。
+  此 Action 将为应用生成预发布构建、设置模拟器，并使用 Maestro 运行测试。
 
-- `e2e-android-maestro.yml` - Triggered when a PR is labeled with `android-test-maestro-cloud` or run manually from the actions tab in GitHub.
-  This action will run the tests using Maestro Cloud. You will need to add your Maestro Cloud token to the secrets in GitHub.
+- `e2e-android-maestro.yml` - 当 PR 被标记为 `android-test-maestro-cloud` 时触发，或从 GitHub 的 Actions 标签页手动运行。
+  此 Action 将使用 Maestro Cloud 运行测试。你需要在 GitHub 的 secrets 中添加你的 Maestro Cloud token。
 
-- `e2e-android-eas-build.yml` - Accepts a EAS APK URL and runs the tests. This action is triggered manually from the actions tab in GitHub.
+- `e2e-android-eas-build.yml` - 接受 EAS APK URL 并运行测试。此 Action 从 GitHub 的 Actions 标签页手动触发。
