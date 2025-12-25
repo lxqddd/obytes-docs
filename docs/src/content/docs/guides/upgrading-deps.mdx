@@ -1,28 +1,28 @@
 ---
-title: Upgrading project dependencies
-description: How to update your project dependencies
+title: 升级项目依赖项
+description: 如何更新项目依赖项
 head:
   - tag: title
-    content: Upgrading project dependencies | React Native / Expo Starter
+    content: 升级项目依赖项 | React Native / Expo Starter
 ---
 
 import CodeBlock from '../../../components/code.astro';
 
 :::note
-Please note that this guide is intended for updating your project dependencies only, and it does not ensure that your project will be in sync with the latest version of the starter.
+请注意，本指南仅用于更新您的项目依赖项，并不能确保您的项目与最新版本的启动器保持同步。
 
-To take advantage of the latest improvements in the starter project, you will need to compare your `osMetadata.initVersion` with the latest release on GitHub, and manually apply any necessary changes to your project.
+要利用启动器项目的最新改进，您需要将 `package.json` 中的 `osMetadata.initVersion` 与 GitHub 上的最新发布版本进行比较，并手动将必要的更改应用到您的项目中。
 :::
 
-## Easy way 🚀
+## 简单方式 🚀
 
-Upgrading a React Native project to the latest version can be a challenging task. However, as we are using Expo with a custom dev client, the upgrade process is relatively straightforward compared to a bare React Native project, which requires a significant amount of manual work.
+将 React Native 项目升级到最新版本可能是一项具有挑战性的任务。然而，由于我们使用带有自定义开发客户端的 Expo，与需要大量手动工作的裸 React Native 项目相比，升级过程相对简单。
 
-To update most of the dependencies that come with the starter, you can follow these simple steps:
+要更新启动器附带的大多数依赖项，您可以按照以下简单步骤操作：
 
-First, go to GitHub and compare your `osMetadata.initVersion` in your `package.json` with the latest release. Check if the `package.json` has been updated. Then, copy the new dependencies and devDependencies versions and paste them into your package.json file.
+首先，前往 GitHub 将您的 `package.json` 中的 `osMetadata.initVersion` 与最新发布版本进行比较。检查 `package.json` 是否已更新。然后，复制新的 dependencies 和 devDependencies 版本，并将它们粘贴到您的 package.json 文件中。
 
-Finally, run the following commands to make sure everything is working as expected:
+最后，运行以下命令以确保一切按预期工作：
 
 ```bash
 rm -rf node_modules ## remove node_modules folder
@@ -38,39 +38,39 @@ pnpm start -c ## start the server
 ```
 
 :::info
-If your starter version does not have the `osMetadata.initVersion` property, don't worry. Simply follow the steps in the rest of this guide to upgrade your project.
+如果您的启动器版本没有 `osMetadata.initVersion` 属性，请不要担心。只需按照本指南其余部分中的步骤来升级您的项目。
 
-Moreover, if you have added new dependencies to your project (which is common for most projects), the remaining sections of this guide will also assist you in upgrading your project's dependencies."
+此外，如果您已向项目添加了新的依赖项（这对于大多数项目来说都很常见），本指南的其余部分还将帮助您升级项目的依赖项。
 :::
 
-## Upgrade Expo
+## 升级 Expo
 
-Visit the npm package registry [here](https://www.npmjs.com/package/expo) to ensure that you are getting the latest version of Expo.
+访问 npm 包注册表 [此处](https://www.npmjs.com/package/expo) 以确保您获取的是最新版本的 Expo。
 
-Once you have confirmed that you have the latest version, open your terminal and enter the following command:
+一旦您确认拥有最新版本，请打开终端并输入以下命令：
 
 ```bash
 pnpm add expo@latest
 ## pnpm add expo@48.0.5 for example
 ```
 
-Thanks to the amazing work of the expo team, you can run the following command to upgrade your dependencies to match the correct version required by Expo last version.
+感谢 Expo 团队的出色工作，您可以运行以下命令来升级您的依赖项，以匹配 Expo 最新版本所需的正确版本。
 
 ```bash
 pnpm expo install --fix
 ```
 
-Running the command above will update your dependencies to ensure that they match the version requirements of Expo. In some cases, you may need to manually apply changes to your project in order to make it work with the new version. The command may also provide more detailed information on any necessary changes.
+运行上述命令将更新您的依赖项，以确保它们匹配 Expo 的版本要求。在某些情况下，您可能需要手动对项目进行更改以使其与新版本兼容。该命令还可能提供有关任何必要更改的更多详细信息。
 
-After updating your dependencies, run expo doctor to identify and fix any other issues that may be related to the new version of Expo and your devDependencies.
+更新依赖项后，运行 expo doctor 来识别和修复与新版本 Expo 和您的 devDependencies 相关的任何其他问题。
 
 ```bash
 pnpm run doctor ## a script inside the starter
 ```
 
-Running this command will generate a list of issues that require manual attention. In addition, it will provide a set of npm packages that need to be updated with the exact version required by the new version of Expo.
+运行此命令将生成需要手动处理的议题列表。此外，它还将提供一组需要更新到新版本 Expo 所需确切版本的 npm 包。
 
-Now it's time to make sure everything is still working as expected 😀:
+现在是时候确保一切仍按预期工作 😀：
 
 ```bash
 rm -rf node_modules ## remove node_modules folder
@@ -84,27 +84,27 @@ pnpm android ## run android build
 pnpm start -c ## start the server
 ```
 
-Unfortunately, there is no magic trick here in case you have any issues while running your checks, Fixing those errors may require some manual effort. You can start by reading the error message and identifying any relevant packages that may be causing the issue. Check the changelog of those packages to see if there have been any recent updates that might have introduced breaking changes. This will help you to pinpoint the root cause of the issue and take the necessary steps to resolve it.
+不幸的是，如果在运行检查时遇到任何问题，这里没有神奇的解决方案。修复这些错误可能需要一些手动工作。您可以先阅读错误消息并识别可能导致问题的相关包。检查这些包的变更日志，看看是否有任何最近的更新引入了破坏性更改。这将帮助您准确定位问题的根本原因，并采取必要的步骤来解决它。
 
-The only rule here is to make sure that your project is working as expected before pushing your changes to the remote repository.
+这里的唯一规则是确保您的项目在推送到远程仓库之前按预期工作。
 
 :::tip
-Upgrading your project regularly can make the process much easier. We recommend upgrading your project a month after each new Expo major version is released. This will help you stay up to date with the latest features and security updates while minimizing the risk of encountering compatibility issues with older versions of Expo.
+定期升级您的项目可以使这个过程变得更容易。我们建议在每个新的 Expo 主要版本发布一个月后升级您的项目。这将帮助您及时获取最新的功能和安全更新，同时最小化遇到与旧版 Expo 兼容性问题的风险。
 :::
 
-## Upgrade Non Native dependencies
+## 升级非原生依赖项
 
-While Expo upgrade will help you update most native dependencies automatically through the process outlined above, it's important to keep in mind that non-native dependencies(JS only) may also need to be updated.
+虽然 Expo 升级将通过上述流程帮助您自动更新大多数原生依赖项，但重要的是要记住，非原生依赖项（仅 JS）也可能需要更新。
 
-This time you will use the power of pnpm to update dependencies to the last version and then run our checks to make sure everything is working as expected.
+这次您将使用 pnpm 的强大功能将依赖项更新到最新版本，然后运行我们的检查以确保一切按预期工作。
 
-First, run the following command:
+首先，运行以下命令：
 
 ```bash
 pnpm up -i
 ```
 
-When you run this command, it will generate a list of all dependencies associated with your project. You will then be prompted to select the dependencies that you want to update.
+当您运行此命令时，它将生成与您的项目关联的所有依赖项列表。然后，您将被提示选择要更新的依赖项。
 
 ```bash
 ◯ zod                               latest  3.19.1   ❯  3.21.4   https://zod.dev
@@ -130,13 +130,13 @@ When you run this command, it will generate a list of all dependencies associate
  ◯ eslint-plugin-unicorn             latest  43.0.2   ❯  46.0.0   https://github.com/sindresorhus/eslint-plugin-unicorn#readme
 ```
 
-There is no one-size-fits-all solution for managing updates to your project's dependencies. However, we recommend reviewing the changelog of each package and paying particular attention to any major version updates (indicated by red text). Major version updates may introduce breaking changes that could potentially affect your project's functionality.
+管理项目依赖项更新没有一刀切的解决方案。然而，我们建议查看每个包的变更日志，并特别注意任何主要版本更新（以红色文本表示）。主要版本更新可能引入破坏性更改，这些更改可能影响您的项目功能。
 
-We recommend to start updating `devDependencies` first by following this process:
+我们建议首先按照以下流程开始更新 `devDependencies`：
 
-1. Select all `devDependencies` and update them to the latest version.
-2. Run `pnpm doctor` to revert any changes that are not in sync with the Expo version you are using.
-3. Run your checks to make sure everything is working as expected.
+1. 选择所有 `devDependencies` 并将它们更新到最新版本。
+2. 运行 `pnpm doctor` 以恢复与您使用的 Expo 版本不同步的任何更改。
+3. 运行您的检查以确保一切按预期工作。
 
 ```bash
 rm -rf node_modules ## remove node_modules folder
@@ -150,8 +150,8 @@ pnpm android ## run android build
 pnpm start -c ## start the server
 ```
 
-If you are lucky enough and everything works as expected without any issues, you can now update the rest of the dependencies.
+如果您足够幸运，一切都按预期工作且没有任何问题，您现在可以更新其余的依赖项。
 
 :::tip
-In case your application is not tested enough, it's a good idea to take some time to go through the application and ensure that the most critical features are working correctly before committing any changes.
+如果您的应用程序测试不够充分，在提交任何更改之前，花一些时间浏览应用程序并确保最关键的功能正常工作是一个好主意。
 :::
