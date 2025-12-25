@@ -1,16 +1,16 @@
 ---
-title: How to Contribute
-description: How to contribute to the project, including ways to show your support, report bugs, and more.
+title: 如何贡献
+description: 如何为项目做出贡献，包括展示支持、报告错误等方式。
 head:
   - tag: title
-    content: How to Contribute | React Native / Expo Starter
+    content: 如何贡献 | React Native / Expo Starter
 ---
 
-Thank you for your interest in contributing to our project. Your involvement is greatly appreciated and we welcome your contributions. Here are some ways you can help us improve this project:
+感谢您对为我们的项目做出贡献感兴趣。您的参与深受赞赏，我们欢迎您的贡献。以下是一些您可以帮助我们改进项目的方式：
 
-1. Show your support for the project by giving it a 🌟 on [Github](https://github.com/obytes/react-native-template-obytes). This helps us increase visibility and attract more contributors.
-2. Share your thoughts and ideas with us by [opening an issue](https://github.com/obytes/react-native-template-obytes/issues). If you have any suggestions or feedback about any aspect of the project, we are always eager to hear from you and have a [discussion](https://github.com/obytes/react-native-template-obytes/discussions).
-3. If you have any questions about the project, please don't hesitate to ask. Simply open a new [QA discussion](https://github.com/obytes/react-native-template-obytes/discussions/categories/q-a) and our team will do our best to provide a helpful and informative response.
-4. If you encounter a bug or typo while using the starter kit or reading the documentation, we would be grateful if you could bring it to our attention. You can open an issue to report the issue, or even better, submit a pull request with a fix.
+1. 通过在 [Github](https://github.com/obytes/react-native-template-obytes) 上为项目点亮 🌟 来展示您的支持。这有助于提高项目的知名度并吸引更多贡献者。
+2. 通过[创建议题](https://github.com/obytes/react-native-template-obytes/issues)与我们分享您的想法和建议。如果您对项目的任何方面有建议或反馈，我们随时欢迎您的意见并进行[讨论](https://github.com/obytes/react-native-template-obytes/discussions)。
+3. 如果您对项目有任何疑问，请不要犹豫，直接提问。只需创建一个新的[问答讨论](https://github.com/obytes/react-native-template-obytes/discussions/categories/q-a)，我们的团队会尽力提供有帮助和信息丰富的回复。
+4. 如果您在使用 Starter 套件或阅读文档时遇到错误或拼写错误，我们将不胜感激您能将其告知我们。您可以创建议题来报告问题，或者更好的是，提交包含修复的拉取请求。
 
-We value the input and contributions of our community and look forward to working with you to improve this project.
+我们重视社区的意见和贡献，并期待与您合作改进这个项目。
