@@ -1,6 +1,6 @@
 ---
 title: Expo Router
-description: How to use Expo Router in your app.
+description: 如何在应用中使用 Expo Router。
 head:
   - tag: title
     content: Expo Router | React Native / Expo Starter
@@ -8,18 +8,18 @@ head:
 
 import CodeBlock from '../../../components/code.astro';
 
-[expo-router](https://docs.expo.dev/router/introduction/) is a navigation library provided by Expo that simplifies the implementation of navigation in React Native applications. It is built on top of React Navigation, a widely used navigation library, and abstracts away much of the complexity involved in managing navigation state and transitions between screens.
+[expo-router](https://docs.expo.dev/router/introduction/) 是一个由 Expo 提供的导航库，它简化了在 React Native 应用程序中实现导航的过程。它构建在 React Navigation（一个广泛使用的导航库）之上，并抽象化了管理导航状态和屏幕间转换的大部分复杂性。
 
-Navigation in Expo Router is expressed declaratively, utilizing components to define the flow of the application. This approach makes it intuitive for developers to structure their navigation hierarchy.
+Expo Router 中的导航以声明式表达，利用组件来定义应用程序的流程。这种方法使开发者能够直观地构建导航层次结构。
 
-Conventional React Native projects typically adopt a structure where a sole root component is commonly specified in either ./App.js or ./index.js. Within the context of Expo Router, an alternative approach is offered through the utilization of the Root Layout, located in `app/_layout.tsx` in our Demo. Thereby, the `_layout` section of our app handles the overall structure and navigation setup.
+传统的 React Native 项目通常采用这样的结构：单一的根组件通常在 ./App.js 或 ./index.js 中指定。在 Expo Router 的上下文中，通过使用 Root Layout 提供了一种替代方法，该布局位于我们 Demo 中的 `app/_layout.tsx`。因此，我们应用的 `_layout` 部分负责处理整体结构和导航设置。
 
 <CodeBlock file="src/app/_layout.tsx" />
 
-The Demo app comes with a simple stack and tabs layout. Feel free to remove what is not working for you and add your own using the same approach as the existing ones.
+Demo 应用配备了简单的堆栈和标签页布局。请随意删除不适合您的部分，并使用与现有布局相同的方法添加您自己的布局。
 
-Here is a simple example of the tabs layout.
+以下是标签页布局的一个简单示例。
 
 <CodeBlock file="src/app/(app)/_layout.tsx" />
 
-Make sure to check the official docs for more information and examples about [expo-router](https://docs.expo.dev/router/introduction/).
+请务必查看官方文档以获取更多关于 [expo-router](https://docs.expo.dev/router/introduction/) 的信息和示例。
