@@ -1,36 +1,36 @@
 ---
-title: Data Fetching
-description: Learn how to fetch data from a server using react-query and axios.
+title: 数据获取
+description: 学习如何使用 react-query 和 axios 从服务器获取数据。
 head:
   - tag: title
-    content: Data Fetching | React Native / Expo Starter
+    content: 数据获取 | React Native / Expo Starter
 ---
 
 import CodeBlock from '../../../components/code.astro';
 
-From the beginning of React, the community has been building a rich ecosystem of tools and libraries that help you build your applications. One of the most important parts of this ecosystem is the ability to fetch data from a server and display it in your application.
+从 React 开始，社区一直在构建丰富的工具和库生态系统来帮助您构建应用程序。其中最重要的部分之一是在应用程序中从服务器获取数据并显示它的能力。
 
-While there are numerous options available for fetching data in React and React Native, the community has recently been gravitating towards adopting React Query as the go-to solution. The reason for this trend is due to React Query's simplicity, flexibility, and tone of features that it provides out of the box.
+虽然在 React 和 React Native 中有许多可用的数据获取选项，但社区最近倾向于采用 React Query 作为首选解决方案。这种趋势的原因是 React Query 开箱即用的简单性、灵活性和丰富的功能。
 
-## What is react-query?
+## 什么是 react-query？
 
-[React-query](https://tanstack.com/query/v4/docs/overview) It is a very powerful library that helps you manage your data fetching, caching, invalidating, and even implementing optimistic UI in a very simple way.
+[React-query](https://tanstack.com/query/v4/docs/overview) 是一个非常强大的库，它帮助您以非常简单的方式管理数据获取、缓存、无效化和甚至实现乐观 UI。
 
-`react-query` offers hooks that simplify the process of fetching and updating data in your app. You can use pre-built hooks like `useQuery` and `useMutation`, or create your own custom hooks based on them. This makes it easier for developers to manage data and build more efficient applications.
+`react-query` 提供了钩子来简化在应用中获取和更新数据的过程。您可以使用预构建的钩子如 `useQuery` 和 `useMutation`，或者基于它们创建自己的自定义钩子。这使得开发者更容易管理数据并构建更高效的应用程序。
 
-## Using react-query-kit & axios
+## 使用 react-query-kit 和 axios
 
-As the starter is designed to save you time and effort, we already have installed react-query and Axios and configured them for you.
+由于入门模板旨在为您节省时间和精力，我们已经为您安装并配置了 react-query 和 Axios。
 
-The `src/api` folder contains all the fetching logic, with a `common` sub-folder that holds a `client`, `queryClient`, and several utility functions specifically designed to work with `react-query`.
+`src/api` 文件夹包含所有获取逻辑，其中 `common` 子文件夹包含专门为 `react-query` 设计的 `client`、`queryClient` 和几个实用函数。
 
-Because we're using Axios as the client, we can leverage all its advanced features, including interceptors, request cancellation, and more. For additional information on Axios, you can check out their website [here](https://axios-http.com/).
+由于我们使用 Axios 作为客户端，我们可以利用其所有高级功能，包括拦截器、请求取消等。有关 Axios 的更多信息，您可以在[这里](https://axios-http.com/)查看他们的网站。
 
-To make writing queries and mutation even easier we are using [react-query-kit](https://github.com/liaoliao666/react-query-kit), a simple toolkit that makes ReactQuery reusable and type-safe with less boilerplate.
+为了使编写查询和变更更加容易，我们使用 [react-query-kit](https://github.com/liaoliao666/react-query-kit)，这是一个简单的工具包，可以使 ReactQuery 具有可重用性和类型安全性，并减少样板代码。
 
 :::tip
 
-You recommend reading Those guides and checking those resources to learn more about react-query:
+我们建议您阅读以下指南并查看这些资源以了解更多关于 react-query 的信息：
 
 - [React-query](https://tanstack.com/query/v4/docs/overview)
 - [react-query-kit](https://github.com/liaoliao666/react-query-kit)
@@ -38,113 +38,113 @@ You recommend reading Those guides and checking those resources to learn more ab
 
 :::
 
-## Data Fetching Use Cases
+## 数据获取用例
 
-Suppose you're building a blog app and need to add the following features:
+假设您正在构建一个博客应用，需要添加以下功能：
 
-- A Feed Screen that displays all posts
-- A Post Screen that shows the details of a single post
-- A Screen to create a new post
+- 显示所有帖子的 Feed 屏幕
+- 显示单个帖子详细信息的 Post 屏幕
+- 创建新帖子的屏幕
 
-To get started, create a new folder named `posts` within `src/api`. This folder will hold all the post-related logic. You can apply this same concept to any other entities, such as users, within your application.
+首先，在 `src/api` 中创建一个名为 `posts` 的新文件夹。这个文件夹将包含所有与帖子相关的逻辑。您可以将相同概念应用于应用程序中的其他实体，如用户。
 
-### Feed Screen
+### Feed 屏幕
 
-The feed screen will show all the posts available in the app. To achieve this, we need to create a hook called `usePosts` that will fetch the posts and display them as a list.
+Feed 屏幕将显示应用中所有可用的帖子。为此，我们需要创建一个名为 `usePosts` 的钩子，它将获取帖子并将它们显示为列表。
 
-Here are the steps to create the `usePosts` hook:
+以下是创建 `usePosts` 钩子的步骤：
 
-1. Inside the `src/api/posts` folder, create a new file called `use-posts.ts`.
-2. Define the type for your `Response` and `Variables` if required, to ensure that you receive the correct data from the server. For instance, you could create a `Post` type for the posts.
-3. Use the `createQuery` function from `react-query-kit` library to create a query hook that will fetch the data from the server. We'll name it `usePosts` hook.
+1. 在 `src/api/posts` 文件夹中，创建一个名为 `use-posts.ts` 的新文件。
+2. 根据需要定义 `Response` 和 `Variables` 的类型，以确保您从服务器接收正确的数据。例如，您可以为帖子创建一个 `Post` 类型。
+3. 使用 `react-query-kit` 库中的 `createQuery` 函数创建一个查询钩子，它将从服务器获取数据。我们将把它命名为 `usePosts` 钩子。
 
-Below is the complete code for the use-posts.ts file:
+以下是 use-posts.ts 文件的完整代码：
 
 <CodeBlock file="src/api/posts/use-posts.ts" />
 
-the `createQuery` function accept an object with the following: `queryKey`, `fetcher` and `options`. Since we migrated to the latest version of `react-query-kit`, the `queryFn` property is replaced with `fetcher` and the `queryKey` structure is simplified. Read more about (createQuery)[https://github.com/liaoliao666/react-query-kit#createQuery]
+`createQuery` 函数接受包含以下属性的对象：`queryKey`、`fetcher` 和 `options`。由于我们迁移到最新版本的 `react-query-kit`，`queryFn` 属性被 `fetcher` 替换，并且 `queryKey` 结构被简化。阅读更多关于 (createQuery)[https://github.com/liaoliao666/react-query-kit#createQuery] 的信息
 
 :::tip
-Use `useq` snippet to generate a query in no time using VSCode
+使用 `useq` 代码片段在 VSCode 中快速生成查询
 ![use-query](https://github.com/obytes/react-native-template-obytes/assets/114411010/c052a0ee-8fba-436a-950f-a0c7e44cf3ae)
 
 :::
 
-Now that we have created our custom hook, we can use it in our app to display a list of posts. Follow the steps below to achieve this:
+现在我们已经创建了自定义钩子，可以在应用中使用它来显示帖子列表。请按照以下步骤实现：
 
-1. Create a new screen in your app and name it Posts.
-2. Import and use the usePosts hook we created earlier to fetch the list of posts.
-3. Use the fetched data to display a list of posts.
+1. 在您的应用中创建一个新屏幕，并将其命名为 Posts。
+2. 导入并使用我们之前创建的 usePosts 钩子来获取帖子列表。
+3. 使用获取的数据显示帖子列表。
 
 <CodeBlock file="src/app/(app)/index.tsx" />
 
-As you can see in the code above, we use the `usePosts` hook to fetch data and handle the loading state. This allows us to display a loading indicator while the data is being fetched, and then display the list of posts once the data is ready.
+如上面的代码所示，我们使用 `usePosts` 钩子来获取数据并处理加载状态。这允许我们在获取数据时显示加载指示器，然后在数据准备就绪后显示帖子列表。
 
-In the same example above we also show an error message if the request fails.
+在上面的示例中，如果请求失败，我们还会显示错误消息。
 
-### Post Screen
+### Post 屏幕
 
-The post screen will display the details of a single post. To fetch and display the post, we will create a new hook called `usePost`.
+Post 屏幕将显示单个帖子的详细信息。要获取和显示帖子，我们将创建一个名为 `usePost` 的新钩子。
 
-We can use the same steps we used earlier to create the `usePosts` hook. The only difference is that we will use the `id` of the post as a variable to fetch the specific post.
+我们可以使用之前创建 `usePosts` 钩子时使用的相同步骤。唯一的区别是我们将使用帖子的 `id` 作为变量来获取特定帖子。
 
-Below is the complete code for the `use-post.ts` file:
+以下是 `use-post.ts` 文件的完整代码：
 
 <CodeBlock file="src/api/posts/use-post.ts" />
 
-Now our hook is ready to be used in our post details screen:
+现在我们的钩子已经准备好在帖子详情屏幕中使用：
 
 <CodeBlock file="src/app/feed/[id].tsx" />
 
-### Add new post
+### 添加新帖子
 
-To add a new post, we can use the `createMutation` function from the `react-query-kit` library.
+要添加新帖子，我们可以使用 `react-query-kit` 库中的 `createMutation` 函数。
 
-Here are the steps to create the useAddPost hook:
+以下是创建 useAddPost 钩子的步骤：
 
-1. Create a new file called `use-add-post.ts` inside the `src/api/posts` folder.
-2. Define a type for your `Variables` and `Response` to ensure that you are sending the correct data to the server.
-3. Use the `createMutation` function from `react-query-kit` library to create a mutation hook that will send the data to the server. We'll name this hook `useAddPost`.
+1. 在 `src/api/posts` 文件夹中创建一个名为 `use-add-post.ts` 的新文件。
+2. 定义 `Variables` 和 `Response` 的类型，以确保您向服务器发送正确的数据。
+3. 使用 `react-query-kit` 库中的 `createMutation` 函数创建一个变更钩子，它将数据发送到服务器。我们将这个钩子命名为 `useAddPost`。
 
-Here is the complete code for the `use-add-post.ts` file:
+以下是 `use-add-post.ts` 文件的完整代码：
 
 <CodeBlock file="src/api/posts/use-add-post.ts" />
 
 :::tip
-Use `usem` snippet to generate mutation in no time using VSCode
+使用 `usem` 代码片段在 VSCode 中快速生成变更
 
 :::
 
-Now that we have our mutation hook ready. Let's create a new screen called `AddPost` and use data from `useAddPost` hook to create a new post:
+现在我们的变更钩子已经准备好了。让我们创建一个名为 `AddPost` 的新屏幕，并使用 `useAddPost` 钩子中的数据来创建新帖子：
 
-Exactly the same way we did in [form section](/ui-and-theme/forms) while creating a login form, we will follow the same approach to create a from to create a new post.
+与我们在[表单部分](/ui-and-theme/forms)创建登录表单时所做的方式完全相同，我们将遵循相同的方法来创建一个用于创建新帖子的表单。
 
-1. Create the schema for the new form using Zod
-2. Create the form using react-hook-form
-3. Get `mutate` function from `useAddPost` hook and call it when the form is submitted
-4. You can use the `isPending` state to display a loading indicator while the data is being sent to the server and then redirect the user to the feed screen on success.
+1. 使用 Zod 为新表单创建模式
+2. 使用 react-hook-form 创建表单
+3. 从 `useAddPost` 钩子获取 `mutate` 函数，并在表单提交时调用它
+4. 您可以使用 `isPending` 状态在数据发送到服务器时显示加载指示器，然后在成功时将用户重定向到 Feed 屏幕。
 
 <CodeBlock file="src/app/feed/add-post.tsx" />
 
-## Create API Hooks with Vs Code Snippets
+## 使用 VS Code 代码片段创建 API 钩子
 
-Maybe you mentioned that creating a new query or mutation hook looks the same every time and you are right. That is why we created a set of vscode snippets to help you create your hooks in no time.
+也许您注意到每次创建新的查询或变更钩子看起来都一样，您是对的。这就是为什么我们创建了一套 VS Code 代码片段来帮助您快速创建钩子。
 
-- `useq` : Create a new query hook
+- `useq`：创建新的查询钩子
 
 ![use-query](https://github.com/obytes/react-native-template-obytes/assets/114411010/c052a0ee-8fba-436a-950f-a0c7e44cf3ae)
 
-- `useqv` : Create a new query hook with variables
+- `useqv`：创建带有变量的新查询钩子
 
-- `useiq` : Create a new infinite query hook
-- `usem` : Create a new mutation hook
+- `useiq`：创建新的无限查询钩子
+- `usem`：创建新的变更钩子
 
 ![use-mutation](https://github.com/obytes/react-native-template-obytes/assets/11137944/c322f827-b71d-4629-a337-eb7cd96d4125)
 
-## React Query dev tools plugin
+## React Query 开发工具插件
 
-For managing and and monitoring the `React Query` instances, we use the [React Query dev tools plugin](https://docs.expo.dev/debugging/devtools-plugins/#react-query), which offers us visibility into our data fetching processes and caching in real-time.
-It gives the ability to refetch the data manually, inspect and remove queries, providing control over our data.
-To use it, in the terminal press `shift` + `m` and choose from the opened list of dev tools the React Query plugin. The plugin's web interface will open and display the queries, enabling efficient debugging like in the example below:
+为了管理和监控 `React Query` 实例，我们使用 [React Query 开发工具插件](https://docs.expo.dev/debugging/devtools-plugins/#react-query)，它为我们提供了对数据获取过程和缓存的实时可见性。
+它提供了手动重新获取数据、检查和删除查询的能力，为我们的数据提供控制。
+要使用它，在终端中按 `shift` + `m`，然后从打开的开发工具列表中选择 React Query 插件。插件的 Web 界面将打开并显示查询，使调试高效，就像下面的示例一样：
 
 ![React Query plugin web interface](https://github.com/obytes/react-native-template-obytes/assets/114411010/26bc96ef-e6cb-49c3-be3c-006d6901e440)
