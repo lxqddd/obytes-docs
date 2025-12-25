@@ -1,47 +1,47 @@
 ---
-title: Libraries Recommendation
-description: React Native / Expo Libraries recommendation for the project based on use cases.
+title: 推荐库
+description: 基于使用场景的项目 React Native / Expo 库推荐。
 head:
   - tag: title
-    content: Libraries Recommendation | React Native / Expo Starter
+    content: 推荐库 | React Native / Expo 入门模板
 ---
 
-The starter kit comes with a set of pre-installed and configured libraries. We recommend using these libraries for your project.
+入门模板预装并配置了一套库。我们推荐您在项目中使用这些库。
 
-Below, we'll list other libraries we often use in our projects. These aren't included in the starter because:
+下面我们列出了在项目中经常使用的其他库。这些库未包含在入门模板中，原因如下：
 
-1. They're for specific use cases.
-2. They need a lot of setup.
+1. 它们适用于特定使用场景。
+2. 它们需要大量的设置工作。
 
-This way, you can add them to your project only if you need them, keeping things simple to start with.
+这样，您就可以只在需要时将它们添加到项目中，保持初始设置的简洁性。
 
-### State Management:
+### 状态管理：
 
-The starter kit comes with Zustand out of the box but if your application implements a lot of workflows, you might want to use [XState](https://xstate.js.org/) as it's more powerful on managing complex workflows and state machines.
+入门模板默认配备 Zustand，但如果您的应用实现了大量工作流程，您可能需要使用 [XState](https://xstate.js.org/)，因为它在管理复杂工作流程和状态机方面更加强大。
 
-For example, if you have a workflow to create a new card for user and this workflow has a lot of steps and conditions, Zustand might not be the best choice as it's more designed for simple state management and XState is your best choice in this case.
+例如，如果您有一个为用户创建新卡片的工作流程，且该工作流程包含许多步骤和条件，那么 Zustand 可能不是最佳选择，因为它更适合简单的状态管理，而 XState 则是这种情况下的最佳选择。
 
-### Error Reporting:
+### 错误报告：
 
-- [Sentry](https://sentry.io/welcome/): very popular solution for error reporting in the javascript ecosystem and has a great integration with Expo.
+- [Sentry](https://sentry.io/welcome/)：在 JavaScript 生态系统中非常受欢迎的错误报告解决方案，与 Expo 有良好的集成。
 
-### Notifications:
+### 通知：
 
-There is no solution fit all for notifications, but based on your use case we would recommend one of the following:
+通知没有一劳永逸的解决方案，但基于您的使用场景，我们推荐以下之一：
 
-- [Expo Push Notifications](https://docs.expo.dev/push-notifications/overview/)
+- [Expo 推送通知](https://docs.expo.dev/push-notifications/overview/)
 - [OneSignal](https://onesignal.com/)
 
-### Analytics:
+### 分析：
 
-- [PostHog](https://posthog.com/docs/libraries/react-native) : Easy to setup and use and has a great free tier.
+- [PostHog](https://posthog.com/docs/libraries/react-native)：易于设置和使用，并提供优质的免费层级。
 
 - [Google Analytics](https://rnfirebase.io/analytics/usage)
 
-### Charts:
+### 图表：
 
 - [Victory Native](https://github.com/FormidableLabs/victory-native-xl)
 
 ---
 
-For sure we are missing some great libraries here, so we count on your contribution to add them in the comments sections below.
+我们肯定遗漏了一些优秀的库，因此我们期待您在下面的评论区中添加它们。
