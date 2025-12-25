@@ -1,24 +1,24 @@
 ---
-title: Overview
-description: All you need to know about the CI/CD of the starter.
+title: CI/CD 概述
+description: 关于启动器 CI/CD 的所有信息。
 head:
   - tag: title
-    content: CI/CD | React Native / Expo Starter
+    content: CI/CD | React Native / Expo 启动器
 ---
 
-CI/CD stands for Continuous Integration and Continuous Delivery/Deployment. It is a set of practices that help developers automate the process of building, testing, and distributing applications to end-users (such as app stores for mobile apps).
+CI/CD 代表持续集成和持续交付/部署。它是一套实践，帮助开发者自动化构建、测试和分发应用程序到最终用户（如移动应用的应用程序商店）的过程。
 
-Having a good CI/CD process in place is crucial for any project, as it helps you save time and effort, as well as ensuring that you are delivering a high-quality product to your users. It helps avoid common mistakes and bugs, reduces your time to market, and allows for faster updates to your users.
+为任何项目建立良好的 CI/CD 流程都至关重要，因为它可以帮助您节省时间和精力，同时确保向用户交付高质量的产品。它有助于避免常见错误和缺陷，缩短上市时间，并允许更快地向用户更新。
 
-As most of our projects are hosted on GitHub, we use [GitHub Actions](https://github.com/features/actions) and [Expo EAS](https://expo.dev/eas) as our CI/CD solution. The starter kit comes with over 10 GitHub Actions workflows:
+由于我们的大多数项目都托管在 GitHub 上，我们使用 [GitHub Actions](https://github.com/features/actions) 和 [Expo EAS](https://expo.dev/eas) 作为我们的 CI/CD 解决方案。启动器套件包含超过 10 个 GitHub Actions 工作流：
 
-- `.github/workflows/lint-ts.yml`: On PR and new commits on the master branch, run linting and formatting checks.
-- `.github/workflows/test.yml`: On PR and new commits on the master branch, run unit tests.
-- `.github/workflows/type-check.yml`: On PR and new commits on the master branch, run type checking.
-- `.github/workflows/compress-images.yml`: On new commits to the master branch, when adding images, open a pull request (PR) with the compressed images.
-- `.github/workflows/expo-doctor.yml`: On PR and new commits to the master branch, check whether dependencies are aligned with the Expo SDK version.
-- `.github/workflows/new-app-version.yml`: A workflow to manually trigger and update the app version, and publish a tag.
+- `.github/workflows/lint-ts.yml`：在 PR 和主分支的新提交上，运行代码检查和格式化检查。
+- `.github/workflows/test.yml`：在 PR 和主分支的新提交上，运行单元测试。
+- `.github/workflows/type-check.yml`：在 PR 和主分支的新提交上，运行类型检查。
+- `.github/workflows/compress-images.yml`：在主分支的新提交上，当添加图片时，创建一个包含压缩图片的拉取请求（PR）。
+- `.github/workflows/expo-doctor.yml`：在 PR 和主分支的新提交上，检查依赖是否与 Expo SDK 版本保持一致。
+- `.github/workflows/new-app-version.yml`：手动触发以更新应用版本并发布标签的工作流。
 
-You can check the full list of workflows [here](/ci-cd/workflows-references/)
+您可以在[此处](/ci-cd/workflows-references/)查看完整的工作流列表。
 
-Pushing the new release to the stores is a weekly process for our team. To make it easier, we have created a simple process using GitHub Actions and Expo EAS. You can check the full guide [here](/ci-cd/app-releasing-process/).
+向商店推送新版本是我们团队的每周流程。为了简化这个过程，我们使用 GitHub Actions 和 Expo EAS 创建了一个简单的流程。您可以在[此处](/ci-cd/app-releasing-process/)查看完整指南。
