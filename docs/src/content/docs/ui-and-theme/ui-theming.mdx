@@ -1,0 +1,103 @@
+---
+title: UI 和主题
+description: 如何管理应用程序的 UI 和主题。
+head:
+  - tag: title
+    content: UI 和主题 | React Native / Expo 入门模板
+---
+
+import CodeBlock from '../../../components/code.astro';
+
+如何管理应用程序的 UI 和主题。
+
+## 为什么选择 [Tailwind CSS](https://tailwindcss.com/)？
+
+在过去的几年里，我们尝试了多种为 React Native 应用添加样式的方法：Stylesheet API、styled-components、restyle 等。
+
+目前，我们确信在 React Native 中使用 Tailwind CSS 是正确的解决方案，尤其是在尝试了 [Nativewind](https://www.nativewind.dev/v4/overview) 之后。
+
+如果您熟悉在 Web 上使用 Tailwind CSS，您会发现它非常易用，甚至可以将 Web 应用的样式直接复制粘贴到 React Native 中使用，只需要进行一些小调整即可正常工作。
+
+最后但同样重要的是，Tailwind CSS 对我们来说是一个自然的选择，因为我们团队的大多数成员都来自 Web 背景，并且之前有机会使用过 Tailwind CSS。
+
+:::tip
+
+如果您不熟悉 Tailwind CSS，我们建议您先阅读 [Tailwind CSS 文档](https://tailwindcss.com/docs)。
+
+我们还建议您使用 [Tailwind CSS 游乐场](https://play.tailwindcss.com/) 来更好地理解它的工作原理，并在深入 React Native 之前通过构建一个简单的 Web 应用来进行练习。
+
+:::
+
+## 关于 Nativewind
+
+Nativewind 是一个允许您在 React Native 中使用 Tailwind CSS 的库。Nativewind 通过将 Tailwind CSS 类预编译为 React Native 样式表，并使用最小化的运行时来选择性地应用样式，从而实现这一目标。
+
+NativeWind 版本 4 引入了多项改进和增强功能，提供了更高效的开发体验。向版本 4 的过渡引入了一种不同的方法，消除了使用 `styled` 组件创建和包装我们自己的组件的需要。因此，这种以实用程序为中心的方法通过使用类并直接在 JSX 元素中应用样式来简化样式设置过程。
+
+有关 Nativewind 的更多详细信息，您可以查看他们的[文档](https://www.nativewind.dev/v4/overview/)。
+
+以下是您的组件应该如何编写的一个示例：
+
+<CodeBlock file="src/components/card.tsx" />
+
+## 配置
+
+Nativewind 与 Tailwind CSS 相同，它提供了默认的主题和颜色，您可以通过创建自己的主题和颜色来覆盖它们。
+
+您需要了解的是，Nativewind 是构建在 Tailwind CSS 之上的库。您可以随意为您的应用添加任何想要使用的 Tailwind CSS 配置，例如更新颜色、间距、排版等。
+
+我们创建了一个 `ui/theme` 文件夹，您可以在其中找到我们的自定义颜色，这些颜色已被导入到 `tailwind.config.js` 中，并用作演示应用的主题。您可以添加自己的调色板，并在组件中使用 Tailwind 类名来使用它们。
+
+您可以阅读更多关于如何[使用 Tailwind CSS 配置项目](https://tailwindcss.com/docs/configuration)的信息。
+
+## 暗色模式
+
+<video controls height="600" style="max-width:400px">
+  <source
+    src="https://github-production-user-asset-6210df.s3.amazonaws.com/11137944/238315572-37620367-b639-417e-a802-c48a3d7566ba.mp4"
+    type="video/mp4"
+  />
+  您的浏览器不支持视频标签。
+</video>
+
+### 为什么需要暗色模式？
+
+暗色模式在近年来获得了显著的关注，并已成为一项必备功能。通过应用暗色模式，它可以在低光环境下更容易阅读，减少眼睛疲劳，这意味着用户可以在您的应用上花费更多时间。
+
+此模板开箱即支持暗色模式，而且非常容易自定义应用的配色方案。多亏了 [tailwindcss](https://tailwindcss.com/docs/dark-mode)
+
+### 实现方式
+
+由于我们使用的是 [nativewind](https://www.nativewind.dev/)（底层使用 Tailwind CSS）和 expo-router，我们让它们处理主题的应用，而我们只需要关心所需的颜色即可。我们在 `ui/theme/colors.js` 中设置颜色，并在我们的钩子 `useThemeConfig.tsx` 中使用它们来获取传递给 ThemeProvider 的主题对象。有关更多信息，请查看 [expo-router](https://docs.expo.dev/router/appearance/)
+
+<CodeBlock file="src/lib/use-theme-config.tsx" />
+
+<CodeBlock file="src/app/_layout.tsx" />
+
+### 我们如何处理主题变更？
+
+我们使用 `loadSelectedTheme` 函数从存储中加载主题，如果存储中有保存的主题，否则我们让 nativwind 使用默认主题（系统主题）。要设置选定的主题，我们使用 `useSelectedTheme` 钩子，它将主题设置在存储中并更新应用的配色方案。
+
+<CodeBlock file="src/lib/hooks/use-selected-theme.tsx" />
+
+### 为每个组件添加暗色模式
+
+要为浅色模式添加值，您可以直接在组件类中编写它们。对于暗色模式，您可以使用 **dark:** 变体。
+
+```tsx
+<View className="... border-neutral-200 dark:border-yellow-700">....</View>
+```
+
+如果您想使用 style 属性，可以使用 `useColorScheme` 钩子来获取当前的配色方案并应用所需的样式。但是，**在大多数情况下，您不需要这样做**，因为 dark: 变体就能完成这项工作。
+
+```tsx
+import { useColorScheme } from 'nativewind';
+
+const colorScheme = useColorScheme();
+const style =
+  colorScheme === 'dark'
+    ? { backgroundColor: 'black' }
+    : { backgroundColor: 'white' };
+```
+
+有关暗色模式的更多详细信息，您可以查看 [tailwind](https://tailwindcss.com/docs/dark-mode) 和 [nativewind](https://www.nativewind.dev/core-concepts/dark-mode)
