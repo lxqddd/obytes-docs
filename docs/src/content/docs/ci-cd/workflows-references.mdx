@@ -1,46 +1,46 @@
 ---
-title: Github Action workflows
-description: A list of all the Github Action workflows that come with the starter and how to use them.
+title: GitHub Action 工作流
+description: 列出启动器附带的所有 GitHub Action 工作流及其使用方法。
 head:
   - tag: title
-    content: Github Action workflows | A list of all the Github Action workflows that come with the starter and how to use them.
+    content: GitHub Action 工作流 | 列出启动器附带的所有 GitHub Action 工作流及其使用方法。
 ---
 
 import CodeBlock from '../../../components/code.astro';
 
-The starter comes with over 10 GitHub Actions workflows that help you automate the process of checking, testing, releasing, and much more.
+启动器附带了超过 10 个 GitHub Actions 工作流，帮助您自动化检查、测试、发布等过程。
 
-All those workflows are self-documented and contain all details directly inside the workflow file as comments. This approach makes it easier to understand what each workflow does and how to use it without having to go back and forth between the documentation and the workflow file.
+所有这些工作流都是自文档化的，并在工作流文件中以注释的形式包含所有详细信息。这种方法使得理解每个工作流的作用及其使用方法变得更容易，无需在文档和工作流文件之间来回切换。
 
-This page lists all workflows and actions we use and adds more details on the approach we are using to make those workflows as simple as possible.
+本页列出了我们使用的所有工作流和操作，并对我们用于简化这些工作流的方案进行了更详细的说明。
 
-All files related to GitHub Actions are located in the `.github/workflows` and `.github/actions` folders.
+所有与 GitHub Actions 相关的文件都位于 `.github/workflows` 和 `.github/actions` 文件夹中。
 
-## Actions
+## 操作
 
-You can think of actions as functions that are used by workflows to perform a specific task and allow you to reuse the same task in multiple workflows without duplicating the code which made them easier to maintain.
+您可以将操作视为工作流中用于执行特定任务的函数，它们允许您在多个工作流中重用相同任务而无需复制代码，这使得维护变得更容易。
 
-All actions are located in the `.github/actions` folder, and here is the complete list:
+所有操作都位于 `.github/actions` 文件夹中，以下是完整列表：
 
-### ⚙️ Node setup and PNM install
+### ⚙️ Node 设置和 PNM 安装
 
 <CodeBlock file=".github/actions/setup-node-pnpm-install/action.yml" />
 
-### ⚙️ Setup JDK && Generate APK
+### ⚙️ 设置 JDK && 生成 APK
 
 <CodeBlock file=".github/actions/setup-jdk-generate-apk/action.yml" />
 
-### ⚙️ EAS Build
+### ⚙️ EAS 构建
 
 <CodeBlock file=".github/actions/eas-build/action.yml" />
 
-## Workflows
+## 工作流
 
-### ⚙️ Linting and formatting
+### ⚙️ 代码检查和格式化
 
 <CodeBlock file=".github/workflows/lint-ts.yml" />
 
-### ⚙️ Type checking
+### ⚙️ 类型检查
 
 <CodeBlock file=".github/workflows/type-check.yml" />
 
@@ -48,38 +48,38 @@ All actions are located in the `.github/actions` folder, and here is the complet
 
 <CodeBlock file=".github/workflows/expo-doctor.yml" />
 
-### ⚙️ Compress Images
+### ⚙️ 压缩图片
 
 <CodeBlock file=".github/workflows/compress-images.yml" />
 
-### ⚙️ Running Tests + Coverage Reports
+### ⚙️ 运行测试 + 覆盖率报告
 
 <CodeBlock file=".github/workflows/test.yml" />
 
-### ⚙️ New App Version
+### ⚙️ 新应用版本
 
 <CodeBlock file=".github/workflows/new-app-version.yml" />
 
-### ⚙️ New Github Release
+### ⚙️ 新 GitHub 发布
 
 <CodeBlock file=".github/workflows/new-github-release.yml" />
 
-### ⚙️ EAS Build QA
+### ⚙️ EAS 构建 QA
 
 <CodeBlock file=".github/workflows/eas-build-qa.yml" />
 
-### ⚙️ EAS Build Prod
+### ⚙️ EAS 构建生产环境
 
 <CodeBlock file=".github/workflows/eas-build-prod.yml" />
 
-### ⚙️ E2E Test for Android
+### ⚙️ Android 端到端测试
 
 <CodeBlock file=".github/workflows/e2e-android.yml" />
 
-### ⚙️ E2E Test for Android using Maestro Cloud
+### ⚙️ 使用 Maestro Cloud 的 Android 端到端测试
 
 <CodeBlock file=".github/workflows/e2e-android-maestro.yml" />
 
-### ⚙️ E2E Test for Android using EAS Build
+### ⚙️ 使用 EAS Build 的 Android 端到端测试
 
 <CodeBlock file=".github/workflows/e2e-android-eas-build.yml" />
