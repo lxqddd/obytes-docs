@@ -1,19 +1,19 @@
 ---
-title: UI Components
-description: List of all UI components and how to use them.
+title: UI 组件
+description: 所有 UI 组件的列表及其使用方法。
 head:
   - tag: title
-    content: UI Components | React Native / Expo Starter
+    content: UI 组件 | React Native / Expo Starter
 ---
 
 import { FileTree } from '@astrojs/starlight/components';
 import CodeBlock from '../../../components/code.astro';
 
-The starter comes with a set of basic components and a simple design system based on Nativewind to help you get started and save you time.
+该启动模板提供了一套基础组件和基于 Nativewind 的简单设计系统，帮助您快速入门并节省时间。
 
-All those components can be found in the `src/components/ui` folder. Our philosophy is to keep the components as simple as possible and to avoid adding too much logic to them. This way, they are easier to reuse and customize.
+所有这些组件都可以在 `src/components/ui` 文件夹中找到。我们的理念是保持组件尽可能简单，避免添加过多逻辑。这样，它们更容易被重用和自定义。
 
-Based on your needs, you can either use them as they are or customize them to fit your needs. You can also create new ones based on the same approach.
+根据您的需求，您可以直接使用这些组件，也可以对其进行自定义修改。您还可以基于相同的方法创建新的组件。
 
 <FileTree>
 
@@ -36,22 +36,22 @@ Based on your needs, you can either use them as they are or customize them to fi
 </FileTree>
 
 :::tip
-To save time when creating new components or screens, we can simply start typing `comp` and press Enter to generate a new component with the correct structure.
+为了在创建新组件或屏幕时节省时间，我们可以简单地输入 `comp` 然后按 Enter 键来生成具有正确结构的新组件。
 
 ![Create component](https://github.com/obytes/react-native-template-obytes/assets/11137944/ca84555f-12b7-4048-98b8-3c8391bd9918)
 :::
 
 ## List
 
-The `List` component references the FlashList component from the `@shopify/flash-list` package.
+`List` 组件引用了 `@shopify/flash-list` 包中的 FlashList 组件。
 
 <CodeBlock file="src/components/ui/list.tsx" />
 
 **Props**
 
-- All `@shopify/flash-list` Props are supported
+- 支持所有 `@shopify/flash-list` 的 Props
 
-We also provide an `EmptyList` component that you can use to display a message when the list is empty. Feel free to customize it to fit your needs.
+我们还提供了一个 `EmptyList` 组件，您可以在列表为空时使用它来显示消息。请根据您的需求自由自定义它。
 
 **Use Case**
 
@@ -72,15 +72,15 @@ const MyComponent = () => {
 
 ## Image
 
-For the `Image` component, we use the `expo-image` library to provide a fast and performant image component. The `Image` component is a wrapper around the `Image` component from `expo-image` package with additional styling provided by `nativewind`.
-The `cssInterop` function from `nativewind` is used to apply styling and, in this way, the `className` property is applied to the `style` property of the `Image` component.
+对于 `Image` 组件，我们使用 `expo-image` 库来提供快速且高性能的图像组件。`Image` 组件是 `expo-image` 包中 `Image` 组件的包装器，并通过 `nativewind` 提供额外的样式。
+`nativewind` 的 `cssInterop` 函数用于应用样式，这样 `className` 属性就会应用到 `Image` 组件的 `style` 属性上。
 
 <CodeBlock file="src/components/ui/image.tsx" />
 
 **Props**
 
-- All `expo-image` Props are supported
-- `className` - Tailwind CSS class names
+- 支持所有 `expo-image` 的 Props
+- `className` - Tailwind CSS 类名
 
 **Use Case**
 
@@ -102,19 +102,19 @@ const MyComponent = () => {
 
 ## Text
 
-With this custom Text component, you can use the translation key as the `tx` prop, and it will automatically translate the text based on the current locale, as well as support right-to-left (RTL) languages based on the selected locale.
+使用这个自定义的 Text 组件，您可以将翻译键作为 `tx` 属性，它会根据当前语言环境自动翻译文本，同时支持基于所选语言环境的自右向左 (RTL) 语言。
 
 <CodeBlock file="src/components/ui/text.tsx" />
 
 :::tip
-You can also use the `t` snippet to create a simple Text with a default `className`.
+您还可以使用 `t` 代码片段来创建一个具有默认 `className` 的简单 Text。
 :::
 
 **Props**
 
-- All React Native Text Props are supported
-- `className` - Tailwind CSS class names
-- `tx` - Translation key
+- 支持所有 React Native Text Props
+- `className` - Tailwind CSS 类名
+- `tx` - 翻译键
 
 **Use Case**
 
@@ -136,23 +136,23 @@ const MyComponent = () => {
 
 ## Button
 
-The starter comes with a simple `Button` component that you can use to create a basic `Pressable` with a `Text` using Tailwind CSS classes and variant definitions. These variants' logic is based on the `tailwind-variants` package.
+该启动模板提供了一个简单的 `Button` 组件，您可以使用它通过 Tailwind CSS 类和变体定义来创建一个基本的 `Pressable` 组件配合 `Text`。这些变体的逻辑基于 `tailwind-variants` 包。
 
-The `tv` function from `tailwind-variants` is used to create a function that generates a styling configuration object for the Button component based on slot definitions, variant, size , disabled status, full-width, and default variants. Consequently, the `styles` defines the styles for the Button based on the provided props using the `button` function.
+`tailwind-variants` 的 `tv` 函数用于创建一个函数，该函数基于插槽定义、变体、大小、禁用状态、全宽度和默认变体来生成 Button 组件的样式配置对象。因此，`styles` 使用 `button` 函数根据提供的 props 来定义 Button 的样式。
 
-Each variant should include styles for the `container`, `indicator`, and `label` keys. The `container` style is for the `Pressable`, the `label` style is for the `Text` component, and the `indicator` style is for the `ActivityIndicator` component when the `loading` prop is `true`.
+每个变体都应包含 `container`、`indicator` 和 `label` 键的样式。`container` 样式用于 `Pressable`，`label` 样式用于 `Text` 组件，`indicator` 样式用于当 `loading` 属性为 `true` 时的 `ActivityIndicator` 组件。
 
 <CodeBlock file="src/components/ui/button.tsx" />
 
 **Props**
 
-- All React Native Pressable Props are supported.
-- `variant` - Button variant, one of `variant` objects keys (default: `default`)
-- `loading` - Show loading indicator (default: `false`)
-- `label` - Button label
-- `size` - Button size, one of variants `size` objects keys (default: `default`)
-- `className` - Tailwind CSS class names to be applied to the Button's container
-- `textClassName` - Additional styling for the Button's label
+- 支持所有 React Native Pressable Props。
+- `variant` - Button 变体，`variant` 对象键之一（默认：`default`）
+- `loading` - 显示加载指示器（默认：`false`）
+- `label` - Button 标签
+- `size` - Button 大小，变体 `size` 对象键之一（默认：`default`）
+- `className` - 要应用到 Button 容器的 Tailwind CSS 类名
+- `textClassName` - Button 标签的额外样式
 
 **Use Case**
 
@@ -160,25 +160,25 @@ Each variant should include styles for the `container`, `indicator`, and `label`
 
 ## Input
 
-We provide a simple `Input` component with a `Text` component for the label and a `TextInput` component for the input.
+我们提供了一个简单的 `Input` 组件，其中包含用于标签的 `Text` 组件和用于输入的 `TextInput` 组件。
 
-You can use it in the same way you use the `TextInput` component from React Native, but with additional props to customize the label and error styling.
+您可以像使用 React Native 的 `TextInput` 组件一样使用它，但具有额外的 props 来自定义标签和错误样式。
 
-The component utilizes the tv function from Tailwind Variants to define styling slots and variants for different states such as focused, error, and disabled. These styles are applied dynamically based on the component's state and props.
+该组件使用 Tailwind Variants 的 tv 函数来定义样式插槽和变体，用于不同的状态，如聚焦、错误和禁用。这些样式会根据组件的状态和 props 动态应用。
 
-We tried to keep the ` Input` component as simple as possible, but you can add more functionality, such as `onFocus` and `onBlur`, or adding left and right icons to the input.
+我们尽量保持 `Input` 组件尽可能简单，但您可以添加更多功能，例如 `onFocus` 和 `onBlur`，或者为输入框添加左右图标。
 
 <CodeBlock file="src/components/ui/input.tsx" />
 
 **Props**
 
-- All React Native TextInput Props are supported
-- `label` - Input label
-- `error` - Input error message
+- 支持所有 React Native TextInput Props
+- `label` - Input 标签
+- `error` - Input 错误消息
 
-We provide also a simple `ControlledInput` component that uses the `Input` component under the hood but with a `useController` hook from `react-hook-form` to make it ready to use with `react-hook-form` library.
+我们还提供了一个简单的 `ControlledInput` 组件，它在底层使用 `Input` 组件，但通过 `react-hook-form` 的 `useController` 钩子使其可以与 `react-hook-form` 库一起使用。
 
-Read more about Handling Forms [here](../forms/).
+了解更多关于表单处理的信息 [请点击此处](../forms/)。
 
 **Use Case**
 
@@ -197,19 +197,19 @@ const MyComponent = () => {
 
 ## Modal
 
-We provide a simple `Modal` component using the `@gorhom/bottom-sheet` library to display a modal at the bottom of the screen.
+我们提供了一个简单的 `Modal` 组件，使用 `@gorhom/bottom-sheet` 库在屏幕底部显示模态框。
 
-We opt to use a bottom sheet instead of a modal to make it more flexible and easy to use. as well as having full control over the logic and the UI.
+我们选择使用底部工作表而不是模态框，以使其更加灵活和易于使用，同时对逻辑和 UI 具有完全控制权。
 
-Based on your needs, you can use the `Modal` if you don't have a fixed height for the modal content.
+根据您的需求，如果模态框内容没有固定高度，您可以使用 `Modal`。
 
 <CodeBlock file="src/components/ui/modal.tsx" />
 
 **Props**
 
-- All `@gorhom/bottom-sheet` Props are supported
-- `children` - Modal content
-- `title`: `string` - Modal title
+- 支持所有 `@gorhom/bottom-sheet` 的 Props
+- `children` - Modal 内容
+- `title`: `string` - Modal 标题
 
 **Use Case**
 
@@ -233,25 +233,25 @@ const MyComponent = () => {
 
 ## Select
 
-We provide a simple `Select` component using a bottom sheet with a simple List component to select an item from a list of items.
+我们提供了一个简单的 `Select` 组件，使用底部工作表配合简单的 List 组件来从项目列表中选择一个项目。
 
-We opt to use a bottom sheet instead of a dropdown to make it more flexible and easy to use on both iOS and Android and also to minimize the number of dependencies in the starter.
+我们选择使用底部工作表而不是下拉菜单，以使其在 iOS 和 Android 上都更加灵活和易于使用，同时最大限度地减少启动模板中的依赖项数量。
 
-The component uses the `tv` function from Tailwind Variants to define styling slots and variants for different states such as error, and disabled. These styles are applied dynamically based on the component's state and props.
+该组件使用 Tailwind Variants 的 `tv` 函数来定义样式插槽和变体，用于不同的状态，如错误和禁用。这些样式会根据组件的状态和 props 动态应用。
 
-Feel free to update the component implementation to fit your need and as you keep the same Props signature for the `Select` component the component will work with our form handling solution without any changes.
+请根据您的需求自由更新组件实现，只要保持 `Select` 组件的相同 Props 签名，该组件就会与我们的表单处理解决方案无缝配合，无需任何更改。
 
 <CodeBlock file="src/components/ui/select.tsx" />
 
 **Props**
 
-- `label`: `string` - Input label
-- `error`: `string` - Input error message
-- `options` : array of `{ label: string; value: string | number }` - List of items to select from
-- `value` : `string | number` - Selected item value
-- `onSelect`: `(option: Option) => void;` - Callback function to handle item selection
-- `placeholder`: `string`- Placeholder text
-- `disabled`: `boolean` - Disable select input (default: `false`)
+- `label`: `string` - Input 标签
+- `error`: `string` - Input 错误消息
+- `options` : `{ label: string; value: string | number }` 数组 - 要从中选择的项列表
+- `value` : `string | number` - 选定的项值
+- `onSelect`: `(option: Option) => void;` - 处理项选择的回调函数
+- `placeholder`: `string`- 占位符文本
+- `disabled`: `boolean` - 禁用选择输入（默认：`false`）
 
 **Use Case**
 
@@ -285,32 +285,32 @@ const MyComponent = () => {
 
 ## Controlled Select
 
-We provide a simple `ControlledSelect` component that uses the `Select` component under the hood but with a `useController` hook from `react-hook-form` to make it ready to use with `react-hook-form` library.
+我们提供了一个简单的 `ControlledSelect` 组件，它在底层使用 `Select` 组件，但通过 `react-hook-form` 的 `useController` 钩子使其可以与 `react-hook-form` 库一起使用。
 
-Read more about Handling Forms [here](../forms/).
+了解更多关于表单处理的信息 [请点击此处](../forms/)。
 
 ## Checkbox, Radio & Switch
 
-We provide a set of three simple and customizable components including a `Checkbox`, a `Radio`, and a `Switch`, which share the same logic under the hood.
+我们提供了一套三个简单且可自定义的组件，包括 `Checkbox`、`Radio` 和 `Switch`，它们在底层共享相同的逻辑。
 
-The `Checkbox`, `Switch`, and `Radio` components are very similar as they share a common structure and are supposed to handle boolean values, their primary difference being the icon they display and the associated accessibility label. Each component accepts a range of props, allowing us to customize their appearance, behavior, and accessibility features.
+`Checkbox`、`Switch` 和 `Radio` 组件非常相似，因为它们共享一个通用结构并且应该处理布尔值，它们的主要区别在于显示的图标和相关的辅助标签。每个组件都接受一系列 props，允许我们自定义它们的外观、行为和辅助功能特性。
 
-For handling common functionality like handling press events and accessibility states we have the `Root` component. It wraps its children in a `Pressable` component and passes along props.
+为了处理常见功能，如处理按压事件和辅助状态，我们有 `Root` 组件。它将子组件包装在 `Pressable` 组件中并传递 props。
 
-Animations are applied to the icons using the `MotiView` component from the `moti` library. These animations change the appearance of the icons based on their checked state.
+动画使用 `moti` 库的 `MotiView` 组件应用到图标上。这些动画会根据选中状态改变图标的外观。
 
 <CodeBlock file="src/components/ui/checkbox.tsx" />
 
 **Props**
 
-- All React Native Pressable Props are supported excluding `onPress` prop
-- `onChange` - (checked: boolean) => void;` - Callback function to handle component's state
-- `checked` - `boolean`- Determines the state of the component (default:`false`)
-- `label` - Component's label
-- `accessibilityLabel` - Component's accessibility label
-- `children` - Child components/elements
-- `className` - Tailwind CSS class names
-- `disabled`: `boolean` - Disable component (default: `false`)
+- 支持所有 React Native Pressable Props（不包括 `onPress` 属性）
+- `onChange` - (checked: boolean) => void;` - 处理组件状态的回调函数
+- `checked` - `boolean`- 确定组件的状态（默认：`false`）
+- `label` - 组件的标签
+- `accessibilityLabel` - 组件的辅助标签
+- `children` - 子组件/元素
+- `className` - Tailwind CSS 类名
+- `disabled`: `boolean` - 禁用组件（默认：`false`）
 
 **Use Case**
 
@@ -331,9 +331,9 @@ const App = () => {
 };
 ```
 
-By default the component will render a label with the text you passed as label prop and clicking on the label will toggle the component as well.
+默认情况下，组件会渲染一个带有您作为 label 属性传递的文本的标签，点击标签也会切换组件。
 
-For rendering a custom Checkbox, you can use the `Checkbox.Root`, `Checkbox.Icon`, and `Checkbox.Label` components.
+要渲染自定义的 Checkbox，您可以使用 `Checkbox.Root`、`Checkbox.Icon` 和 `Checkbox.Label` 组件。
 
 ```tsx
 import { Checkbox } from '@/components/ui';
