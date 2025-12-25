@@ -145,40 +145,40 @@ export default defineConfig({
               link: '/guides/internationalization/',
             },
             {
-              label: 'Storage',
+              label: '存储',
               link: '/guides/storage/',
             },
             {
-              label: 'Upgrade Dependencies',
+              label: '升级依赖',
               link: '/guides/upgrading-deps/',
             },
           ],
         },
         {
-          label: 'Recipes',
+          label: '实践指南',
           items: [
             // Each item here is one entry in the navigation menu.
             {
-              label: 'Sentry Setup',
+              label: 'Sentry 设置',
               link: '/recipes/sentry-setup/',
               badge: 'new',
             },
           ],
         },
         {
-          label: 'Testing',
+          label: '测试',
           items: [
             // Each item here is one entry in the navigation menu.
             {
-              label: 'Overview',
+              label: '概述',
               link: '/testing/overview/',
             },
             {
-              label: 'Unit Testing',
+              label: '单元测试',
               link: '/testing/unit-testing/',
             },
             {
-              label: 'E2E Testing',
+              label: '端到端测试',
               link: '/testing/end-to-end-testing/',
             },
           ],
@@ -188,43 +188,43 @@ export default defineConfig({
           items: [
             // Each item here is one entry in the navigation menu.
             {
-              label: 'Overview',
+              label: '概述',
               link: '/ci-cd/overview/',
             },
             {
-              label: 'Releasing Process',
+              label: '发布流程',
               link: '/ci-cd/app-releasing-process/',
             },
             {
-              label: 'Workflows Reference',
+              label: '工作流参考',
               link: '/ci-cd/workflows-references/',
             },
           ],
         },
         {
-          label: 'Libraries Recommendation',
+          label: '库推荐',
           link: '/libraries-recommendation',
         },
         {
-          label: 'FAQ',
+          label: '常见问题',
           link: '/faq',
           badge: 'new',
         },
         {
-          label: 'CHANGELOG',
+          label: '更新日志',
           link: '/changelog',
         },
         {
-          label: 'How to contribute ?',
+          label: '如何贡献',
           link: '/how-to-contribute',
         },
         {
-          label: 'Reviews',
+          label: '评价',
           link: '/reviews',
           badge: 'new',
         },
         {
-          label: 'Stay Updated',
+          label: '保持更新',
           link: '/stay-updated',
         },
       ],
