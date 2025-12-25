@@ -1,11 +1,11 @@
 ---
-title: What people say about the starter
-description: What people say about the starter
+title: 人们对这个 Starter 的评价
+description: 人们对这个 Starter 的评价
 head:
   - tag: title
-    content: Reviews | React Native / Expo Starter
+    content: 用户评价 | React Native / Expo Starter
 ---
 
-This is a list of reviews from people who have used the starter kit.
+这是一个使用过 Starter 套件的人们的评价列表。
 
-Please feel free to add your in the comments section 👇
+请在下方评论区添加您的评价 👇

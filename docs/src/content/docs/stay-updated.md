@@ -1,47 +1,47 @@
 ---
-title: Stay Up-to-Date with React Native
-description: Stay up-to-date with React Native news.
+title: 保持 React Native 最新动态
+description: 保持 React Native 新闻的最新动态。
 head:
   - tag: title
-    content: Stay Updated | React Native / Expo Starter
+    content: 保持更新 | React Native / Expo Starter
 ---
 
-Make sure to check out the links below to stay up-to-date with React Native news.
+请务必查看以下链接以保持 React Native 新闻的最新动态。
 
 :::note
-We are in favor of reducing the number of news sources you use to avoid feeling overwhelmed. Therefore, we have only included resources that we think are essential and deserve your attention.
+我们倾向于减少您使用的新闻来源数量，以避免感到不知所措。因此，我们只收录了我们认为必不可少且值得您关注的资源。
 
 :::
 
-## Websites
+## 网站
 
-- [React Native Documentation](https://reactnative.dev/)
-- [React Native Directory](https://reactnative.directory/)
-- [React Native Reddit Channel](https://www.reddit.com/r/reactnative/)
+- [React Native 文档](https://reactnative.dev/)
+- [React Native 目录](https://reactnative.directory/)
+- [React Native Reddit 频道](https://www.reddit.com/r/reactnative/)
 
-## Blogs
+## 博客
 
-- [Expo blog](https://blog.expo.dev/)
-- [React Native Dev Blog](https://reactnative.dev/blog)
-- [TkDodo's blog](https://tkdodo.eu/blog/)
-- [Developer way](https://www.developerway.com/)
-- [Bam React Native blog](https://www.bam.tech/blog/react-native)
+- [Expo 博客](https://blog.expo.dev/)
+- [React Native 开发者博客](https://reactnative.dev/blog)
+- [TkDodo 的博客](https://tkdodo.eu/blog/)
+- [开发者之路](https://www.developerway.com/)
+- [Bam React Native 博客](https://www.bam.tech/blog/react-native)
 
-## Newsletters
+## 新闻通讯
 
-- [This week in react](https://thisweekinreact.com/)
-- [The React Native Newsletter](https://reactnativenewsletter.com/)
+- [本周 React 动态](https://thisweekinreact.com/)
+- [React Native 新闻通讯](https://reactnativenewsletter.com/)
 
-## Twitter accounts
+## Twitter 账号
 
 - [Evan Bacon](https://twitter.com/Baconbrix)
 - [React Native](https://twitter.com/reactnative)
 - [Expo](https://twitter.com/expo)
 - [Sebastien Lorber](https://twitter.com/sebastienlorber)
 
-## Open source projects
+## 开源项目
 
-A list of open-source projects and production-ready apps that you can use to learn and get inspired from.
+您可以从中学习和汲取灵感的一系列开源项目和可用于生产的应用程序列表。
 
 - [showtime-frontend](https://github.com/showtime-xyz/showtime-frontend)
 - [xLog-mobile](https://github.com/Crossbell-Box/xLog-mobile)
