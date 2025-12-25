@@ -1,53 +1,53 @@
 ---
-title: Authentication
-description: How to manage authentication in your app.
+title: 认证
+description: 如何在应用中管理认证。
 head:
   - tag: title
-    content: Authentication | React Native / Expo Starter
+    content: 认证 | React Native / Expo 入门模板
 ---
 
 import CodeBlock from '../../../components/code.astro';
 
-Most of the applications we had the chance to work on required some sort of authentication and having a bad approach to do it can lead to a lot of problems. The starter kit comes with the basics and mostly what you need to start with authentication in your application.
+我们有机会参与的大多数应用都需要某种形式的认证，而采用不恰当的方法可能会导致很多问题。这个入门模板提供了基础功能，以及在应用中开始实现认证所需的大部分内容。
 
-As Authentication is global to the application, we end up using Zustand to manage the authentication state of the application.
+由于认证对整个应用都是全局性的，我们最终使用Zustand来管理应用的认证状态。
 
-[Zustand](https://github.com/pmndrs/zustand) is a state management library that is very simple to use and highly performant. It is also easy to integrate with React and works better than a simple context API, as it offers additional features such as selectors to prevent unnecessary re-renders.
+[Zustand](https://github.com/pmndrs/zustand)是一个非常简单且高性能的状态管理库。它很容易与React集成，比简单的context API表现更好，因为它提供了额外的功能，如选择器来防止不必要的重新渲染。
 
-Zustand works very well with TypeScript and can be easily used outside the React tree, which means more flexibility.
+Zustand与TypeScript配合得很好，并且可以在React树之外轻松使用，这意味着更大的灵活性。
 
-## Authentication Store
+## 认证存储
 
-As mentioned earlier, we use Zustand to manage the authentication state of the application. The authentication store is located in `src/store/auth` and is utilized for managing the authentication state of the application.
+如前所述，我们使用Zustand来管理应用的认证状态。认证存储位于`src/store/auth`中，用于管理应用的认证状态。
 
 <CodeBlock file="src/lib/auth/index.tsx" />
 
-The store is composed of 2 states and 3 actions:
+这个存储由2个状态和3个动作组成：
 
-- `status`: The status of the authentication. It can be `idle`, `signOut` or `signIn`.
+- `status`：认证的状态。可以是`idle`、`signOut`或`signIn`。
 
-  - `idle`: Still not sure if the user is authenticated or not (when we are fetching tokens from the storage)
-  - `signOut`: The user is not authenticated
-  - `signIn`: The user is authenticated
+  - `idle`：仍不确定用户是否已认证（当我们从存储中获取令牌时）
+  - `signOut`：用户未认证
+  - `signIn`：用户已认证
 
-- `useToken`: The token of the user. It is used to authenticate the user to the API. It is stored in the storage of the device and we use it to hydrate the authentication status state when the application is started.
+- `useToken`：用户的令牌。用于向API认证用户。它存储在设备的存储中，我们在应用启动时使用它来初始化认证状态。
 
-  For the Demo app `useToken` is a simple object that contains the `accessToken` and the `refreshToken`. You can add more fields if you update the `TokenType` type in `src/lib/auth/utils.ts`.
+  对于演示应用，`useToken`是一个简单的对象，包含`accessToken`和`refreshToken`。如果您更新`src/lib/auth/utils.ts`中的`TokenType`类型，可以添加更多字段。
 
-- `signIn`: The function performs user sign-in. It accepts a token as a parameter, sets the token state, stores it locally, and updates the status to `signIn`.
+- `signIn`：执行用户登录的函数。它接受令牌作为参数，设置令牌状态，在本地存储它，并将状态更新为`signIn`。
 
-- `signOut`: The action to sign out the user. It sets the token state to `null` and removes it from the storage as well as setting the status to `signOut`.
+- `signOut`：注销用户的动作。它将令牌状态设置为`null`，从存储中移除它，并将状态设置为`signOut`。
 
-- `hydrate`: The action to hydrate the authentication status state. We call this action when the application is started to check if the user is authenticated or not. It fetches the token from the storage and sets the status to `signIn` if the token is not `null` or `signOut` if the token is `null`.
+- `hydrate`：初始化认证状态的动作。我们在应用启动时调用这个动作来检查用户是否已认证。它从存储中获取令牌，如果令牌不为`null`则将状态设置为`signIn`，如果令牌为`null`则设置为`signOut`。
 
-## Use Authentication store
+## 使用认证存储
 
-You guessed it, you only need to import the store from `@/lib` and use it in your component or even call store actions from outside React.
+正如您所猜，您只需要从`@/lib`导入存储，并在您的组件中使用它，甚至可以在React外部调用存储动作。
 
 ```tsx
 import { useAuth, hydrate } from '@/lib';
 
-hydrate(); // call this when the application is started to check if the user is authenticated or not
+hydrate(); // 在应用启动时调用此函数来检查用户是否已认证
 
 const App = () => {
   const status = useAuth.use.status();
@@ -62,10 +62,10 @@ const App = () => {
 };
 ```
 
-## Use Case
+## 使用场景
 
-Let's imagine we have a simple application that has a login navigator and a home navigator. The home navigator is only accessible if the user is authenticated, while the login navigator is accessible if the user is not authenticated.
+让我们设想一个简单的应用，它有一个登录导航器和一个主页导航器。只有当用户已认证时才能访问主页导航器，而当用户未认证时才能访问登录导航器。
 
-In this case, you only need to retrieve the status from the authentication store and display the appropriate navigation based on the status.
+在这种情况下，您只需要从认证存储中获取状态，并根据状态显示相应的导航。
 
 <CodeBlock file="src/app/(app)/_layout.tsx" />
