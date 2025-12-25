@@ -1,14 +1,14 @@
-# 🔗 Links:
-# Source file: https://github.com/obytes/react-native-template-obytes/blob/master/.github/workflows/e2e-android.yml
-# End-to-end testing: https://starter.obytes.com/testing/end-to-end-testing/
+# 🔗 链接：
+# 源文件：https://github.com/obytes/react-native-template-obytes/blob/master/.github/workflows/e2e-android.yml
+# 端到端测试：https://starter.obytes.com/testing/end-to-end-testing/
 
-# ✍️ Description:
-# This workflow is used to run end-to-end tests on Android using Maestro Cloud.
-# As a first step, it will generate a test APK using the Gradle build and  then trigger  Maestro Cloud to run the tests on the generated APK.
-# This workflow will be triggered on pull requests (PRs) with the label "android-test-maestro-cloud" or can be manually triggered from the Actions tab.
+# ✍️ 描述：
+# 此工作流用于使用 Maestro Cloud 在 Android 上运行端到端测试。
+# 作为第一步，它将使用 Gradle 构建生成测试 APK，然后触发 Maestro Cloud 在生成的 APK 上运行测试。
+# 此工作流将在带有 "android-test-maestro-cloud" 标签的拉取请求（PR）上触发，或可以从 Actions 选项卡手动触发。
 
-# 🚨 GITHUB SECRETS REQUIRED:
-# MAESTRO_CLOUD_API_KEY: API key for Maestro Cloud. You can get it from https://cloud.mobile.dev/ci-integration/github-actions#add-your-api-key-secret
+# 🚨 需要 GITHUB 密钥：
+# MAESTRO_CLOUD_API_KEY：Maestro Cloud 的 API 密钥。您可以从 https://cloud.mobile.dev/ci-integration/github-actions#add-your-api-key-secret 获取它
 
 name: E2E Tests Android (Maestro Cloud)
 

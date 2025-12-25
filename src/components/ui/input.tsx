@@ -127,7 +127,7 @@ export const Input = React.forwardRef<NTextInput, NInputProps>((props, ref) => {
   );
 });
 
-// only used with react-hook-form
+// 仅与 react-hook-form 一起使用
 export function ControlledInput<T extends FieldValues>(
   props: ControlledInputProps<T>
 ) {

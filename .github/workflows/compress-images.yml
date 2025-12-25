@@ -1,12 +1,12 @@
-# 🔗 Links:
-# Source file: https://github.com/obytes/react-native-template-obytes/blob/master/.github/workflows/compress-images.yml
+# 🔗 链接：
+# 源文件：https://github.com/obytes/react-native-template-obytes/blob/master/.github/workflows/compress-images.yml
 
-# ✍️ Description:
-# This workflow is used to compress images in the repo.
-# This workflow will trigger on a push to the "master" or "main" branch and only run when a new image is added or updated.
-# If it's the case, it will compress those images and create a pull request with the compressed images.
+# ✍️ 描述：
+# 这个工作流用于压缩仓库中的图像。
+# 这个工作流将在 "master" 或 "main" 分支上触发，并且只有在添加或更新新图像时才运行。
+# 如果是这种情况，它将压缩这些图像并创建一个包含压缩图像的拉取请求。
 
-# 🚨 GITHUB SECRETS REQUIRED: None
+# 🚨 需要 GITHUB 密钥：无
 
 name: Compress images
 on:

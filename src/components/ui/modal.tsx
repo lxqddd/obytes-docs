@@ -1,13 +1,13 @@
 /**
- * Modal
- * Dependencies:
+ * 模态框
+ * 依赖项：
  * - @gorhom/bottom-sheet.
  *
- * Props:
- * - All `BottomSheetModalProps` props.
- * - `title` (string | undefined): Optional title for the modal header.
+ * 属性：
+ * - 所有 `BottomSheetModalProps` 属性。
+ * - `title` (string | undefined): 模态框标题的可选标题。
  *
- * Usage Example:
+ * 使用示例：
  * import { Modal, useModal } from '@gorhom/bottom-sheet';
  *
  * function DisplayModal() {
@@ -16,7 +16,7 @@
  *   return (
  *     <View>
  *       <Modal
- *         snapPoints={['60%']} // optional
+ *         snapPoints={['60%']} // 可选
  *         title="Modal Title"
  *         ref={ref}
  *       >
@@ -110,7 +110,7 @@ export const Modal = React.forwardRef(
 );
 
 /**
- * Custom Backdrop
+ * 自定义背景
  */
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
@@ -137,7 +137,7 @@ export const renderBackdrop = (props: BottomSheetBackdropProps) => (
  * @returns
  *
  * @description
- * In case the modal is detached, we need to add some extra props to the modal to make it look like a detached modal.
+ * 如果模态框是分离式的，我们需要为模态框添加一些额外的属性，使其看起来像一个分离式的模态框。
  */
 
 const getDetachedProps = (detached: boolean) => {
@@ -152,7 +152,7 @@ const getDetachedProps = (detached: boolean) => {
 };
 
 /**
- * ModalHeader
+ * 模态框头部
  */
 
 const ModalHeader = React.memo(({ title, dismiss }: ModalHeaderProps) => {

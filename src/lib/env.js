@@ -1,13 +1,13 @@
 /*
- * This file should not be modified; use `env.js` in the project root to add your client environment variables.
- * If you import `Env` from `@env`, this is the file that will be loaded.
- * You can only access the client environment variables here.
- * NOTE: We use js file so we can load the client env types
+ * 此文件不应修改；使用项目根目录下的 `env.js` 添加您的客户端环境变量。
+ * 如果您从 `@env` 导入 `Env`，将加载此文件。
+ * 您只能在此处访问客户端环境变量。
+ * 注意：我们使用 js 文件，因此可以加载客户端环境变量类型
  */
 
 import Constants from 'expo-constants';
 /**
  *  @type {typeof import('../../env.js').ClientEnv}
  */
-//@ts-ignore // Don't worry about TypeScript here; we know we're passing the correct environment variables to `extra` in `app.config.ts`.
+//@ts-ignore // 不要担心 TypeScript 这里；我们知道我们正在将正确的环境变量传递给 `app.config.ts` 中的 `extra`。
 export const Env = Constants.expoConfig?.extra ?? {};

@@ -1,23 +1,23 @@
-# 🔗 Links:
-# Source file: https://github.com/obytes/react-native-template-obytes/blob/master/.github/workflows/lint-ts.yml
-# Starter releasing process: https://starter.obytes.com/ci-cd/app-releasing-process/
+# 🔗 链接：
+# 源文件：https://github.com/obytes/react-native-template-obytes/blob/master/.github/workflows/lint-ts.yml
+# Starter 发布流程：https://starter.obytes.com/ci-cd/app-releasing-process/
 
-# ✍️ Description:
-# This workflow is used to create a new version of the app and push a new tag to the repo.
-# As this workflow will push code to the repo, we set up GitHub Bot as a Git user.
-# This Workflow need to be triggered manually from the Actions tab in the repo.
-#         1. Choose your release type (patch, minor, major)
-#         2. The workflow will run the np-release script which runs the following steps:
-#             - Bump the version in package.json based on the release type using np
-#             - Run the prebuild of the app to align the package.json version with the native code
-#             - Create a new tag with the new version
-#             - Push the new tag to the repo
+# ✍️ 描述：
+# 此工作流用于创建应用的新版本并推送新标签到仓库。
+# 由于此工作流会向仓库推送代码，我们设置 GitHub Bot 作为 Git 用户。
+# 此工作流需要从仓库的 Actions 选项卡手动触发。
+#         1. 选择您的发布类型（patch、minor、major）
+#         2. 工作流将运行 np-release 脚本，该脚本执行以下步骤：
+#             - 使用 np 根据发布类型提升 package.json 中的版本
+#             - 运行应用的预构建以使 package.json 版本与原生代码保持一致
+#             - 使用新版本创建新标签
+#             - 将新标签推送到仓库
 #
 
-# 🚨 GITHUB SECRETS REQUIRED:
-#         - GH_TOKEN: A GitHub token with write repo access.
-#           You can generate one from here: https://docs.github.com/en/enterprise-server@3.6/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
-#           make sure to add it to the repo secrets with the name GH_TOKEN
+# 🚨 需要 GITHUB 密钥：
+#         - GH_TOKEN：具有仓库写入权限的 GitHub 令牌。
+#           您可以从此处生成一个：https://docs.github.com/en/enterprise-server@3.6/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
+#           确保将其添加到仓库密钥中，名称为 GH_TOKEN
 
 name: New App Version
 

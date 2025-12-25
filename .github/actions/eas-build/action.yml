@@ -1,22 +1,22 @@
-# 🔗 Links:
-# Source file: https://github.com/obytes/react-native-template-obytes/blob/master/.github/actions/eas-build/action.yml
-# EAS Build docs: https://docs.expo.dev/eas-update/github-actions/
+# 🔗 链接：
+# 源文件：https://github.com/obytes/react-native-template-obytes/blob/master/.github/actions/eas-build/action.yml
+# EAS Build 文档：https://docs.expo.dev/eas-update/github-actions/
 
-# ✍️ Description:
-# This is a composite action, which means it can be used in other actions.
-# This action is used to trigger an EAS Build for a specific environment (development, staging, production).
-# This action accepts those inputs:
-#        `APP_ENV`, which is used to generate an APK for a specific environment (development, staging, production). We use staging by default.
-#        `AUTO_SUBMIT`, false by default, set to true if you want to automatically submit your build to stores.
-#        `EXPO_TOKEN`, required, access token for your Expo account. https://expo.dev/settings/access-tokens
-#        `VERSION`, required, version of the app to build. used as the build message.
-#        `ANDROID`, true by default, set to true if you don't want to trigger build for Android.
-#        `IOS`, false by default, set to true if you  want to trigger build for IOS.
+# ✍️ 描述：
+# 这是一个复合动作，意味着它可以在其他动作中使用。
+# 此动作用于为特定环境（development、staging、production）触发 EAS Build。
+# 此动作接受以下输入：
+#        `APP_ENV`，用于为特定环境生成 APK（development、staging、production）。默认使用 staging。
+#        `AUTO_SUBMIT`，默认为 false，如果您想自动提交构建到商店，请设置为 true。
+#        `EXPO_TOKEN`，必需，您的 Expo 账户的访问令牌。https://expo.dev/settings/access-tokens
+#        `VERSION`，必需，要构建的应用版本。用作构建消息。
+#        `ANDROID`，默认为 true，如果您不想为 Android 触发构建，请设置为 true。
+#        `IOS`，默认为 false，如果您想为 iOS 触发构建，请设置为 true。
 
-# Before triggering the build, we run a pre-build script to generate the necessary native folders based on the APP_ENV.
-# Based on the ANDROID and IOS inputs, we trigger the build for the corresponding platform with the corresponding flags.
+# 在触发构建之前，我们运行预构建脚本来基于 APP_ENV 生成必要的原生文件夹。
+# 基于 ANDROID 和 IOS 输入，我们为相应平台触发构建并使用相应的标志。
 
-# 👀 Example usage:
+# 👀 使用示例：
 #      - name: ⏱️ EAS Build
 #        uses: ./.github/actions/eas-build
 #        with:
@@ -32,7 +32,7 @@ inputs:
     description: 'APP_ENV (one of): development, staging, production'
     required: true
     default: 'staging'
-  AUTO_SUBMIT: ## TODO: we need to handle this too
+  AUTO_SUBMIT: ## TODO: 我们也需要处理这个
     description: 'AUTO_SUBMIT (one of): true, false'
     required: true
     default: 'false'

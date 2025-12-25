@@ -145,7 +145,7 @@ export default defineConfig({
               link: '/guides/internationalization/',
             },
             {
-              label: '存储',
+              label: '持久化存储',
               link: '/guides/storage/',
             },
             {

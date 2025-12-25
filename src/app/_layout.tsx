@@ -1,4 +1,4 @@
-// Import  global CSS file
+// 导入全局 CSS 文件
 import '../../global.css';
 
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
@@ -23,9 +23,9 @@ export const unstable_settings = {
 
 hydrateAuth();
 loadSelectedTheme();
-// Prevent the splash screen from auto-hiding before asset loading is complete.
+// 防止启动画面在资源加载完成之前自动隐藏。
 SplashScreen.preventAutoHideAsync();
-// Set the animation options. This is optional.
+// 设置动画选项。这是可选的。
 SplashScreen.setOptions({
   duration: 500,
   fade: true,

@@ -47,31 +47,31 @@ Sentry 是 JavaScript 生态系统中最受欢迎的错误报告解决方案之�
    按如下方式更新您的 `env.js` 文件：
 
    ```js title='env.js'
-   // ... existing imports and configurations
+   // ... 现有的导入和配置
 
    const client = z.object({
-     // ... other client env vars
+     // ... 其他客户端环境变量
      SENTRY_DSN: z.string().min(1, 'SENTRY_DSN is required'),
    });
 
    const buildTime = z.object({
-     // ... other build-time env vars
+     // ... 其他构建时环境变量
      SENTRY_ORG: z.string().min(1, 'SENTRY_ORG is required'),
      SENTRY_PROJECT: z.string().min(1, 'SENTRY_PROJECT is required'),
    });
 
    const _clientEnv = {
-     // ... other client env vars
+     // ... 其他客户端环境变量
      SENTRY_DSN: process.env.SENTRY_DSN,
    };
 
    const _buildTimeEnv = {
-     // ... other build-time env vars
+     // ... 其他构建时环境变量
      SENTRY_ORG: process.env.SENTRY_ORG,
      SENTRY_PROJECT: process.env.SENTRY_PROJECT,
    };
 
-   // ... rest of the file
+   // ... 文件的其余部分
    ```
 
    :::note
@@ -93,16 +93,16 @@ Sentry 是 JavaScript 生态系统中最受欢迎的错误报告解决方案之�
 6. 将 Sentry 插件配置添加到您的 `app.config.ts` 文件中。
 
    ```tsx title='app.config.ts'
-   // rest of the file
+   // 文件的其余部分
 
    import { ClientEnv, Env } from './env';
 
    export default ({ config }: ConfigContext): ExpoConfig => ({
      ...config,
-     // rest of the config
+     // 配置的其余部分
 
      plugins: [
-       // rest of the plugins
+       // 插件的其余部分
        [
          '@sentry/react-native/expo',
          {

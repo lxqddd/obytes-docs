@@ -1,14 +1,14 @@
-# 🔗 Links:
-# Source file: https://github.com/obytes/react-native-template-obytes/blob/master/.github/workflows/test.yml
+# 🔗 链接：
+# 源文件：https://github.com/obytes/react-native-template-obytes/blob/master/.github/workflows/test.yml
 
-# ✍️ Description:
-# This action is used to run unit tests
-# Runs on pull requests and pushes to  the main/master branches
-# Based on the event type:
-#   - If it's a pull request, it will run the tests and post a comment with coverage details.
-#   - If it's a push to main/master, it will run the tests and add the check to the commit.
+# ✍️ 描述：
+# 此动作用于运行单元测试
+# 在拉取请求和推送到 main/master 分支时运行
+# 根据事件类型：
+#   - 如果是拉取请求，它将运行测试并发布包含覆盖率详细信息的评论。
+#   - 如果是推送到 main/master，它将运行测试并将检查添加到提交。
 
-# 🚨 GITHUB SECRETS REQUIRED: NONE
+# 🚨 需要 GITHUB 密钥：无
 
 name: Tests (jest)
 

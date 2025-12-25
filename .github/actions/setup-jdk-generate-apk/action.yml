@@ -1,16 +1,16 @@
-# 🔗 Links:
-# Source file: https://github.com/obytes/react-native-template-obytes/blob/master/.github/actions/setup-jdk-generate-apk/action.yml
-# Composite actions docs: https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
+# 🔗 链接：
+# 源文件：https://github.com/obytes/react-native-template-obytes/blob/master/.github/actions/setup-jdk-generate-apk/action.yml
+# 复合动作文档：https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
 
-# ✍️ Description:
-# This is a composite action, which means it can be used in other actions.
-# This action is used to set up the JDK environment and generate an Android APK for testing.
-# This action accepts one input: `APP_ENV`, which is used to generate an APK for a specific environment (development, staging, production). We use staging by default.
-# Before generating the APK, we run a pre-build script to generate the necessary native folders based on the APP_ENV.
-# On success, the APK is generated at `./android/app/build/outputs/apk/release/app-release.apk`.
+# ✍️ 描述：
+# 这是一个复合动作，意味着它可以在其他动作中使用。
+# 此动作用于设置 JDK 环境并生成用于测试的 Android APK。
+# 此动作接受一个输入：`APP_ENV`，用于为特定环境生成 APK（development、staging、production）。默认使用 staging。
+# 在生成 APK 之前，我们运行预构建脚本来基于 APP_ENV 生成必要的原生文件夹。
+# 成功后，APK 将生成在 `./android/app/build/outputs/apk/release/app-release.apk`。
 
-# 👀 Example usage:
-#       - name : 📦 Set Up JDK + Generate Test APK
+# 👀 使用示例：
+#       - name : 📦 设置 JDK + 生成测试 APK
 #         uses: ./.github/actions/setup-jdk-generate-apk
 #         with:
 #           APP_ENV: 'staging'
@@ -29,7 +29,7 @@ runs:
     - name: Set Up JDK
       uses: actions/setup-java@v3
       with:
-        distribution: 'zulu' # See 'Supported distributions' for available options
+        distribution: 'zulu' # 查看 'Supported distributions' 获取可用选项
         java-version: '17'
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2

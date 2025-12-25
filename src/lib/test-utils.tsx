@@ -19,11 +19,11 @@ const customRender = (
   ui: ReactElement,
   options?: Omit<RenderOptions, 'wrapper'>
 ) => {
-  const Wrapper = createAppWrapper(); // make sure we have a new wrapper for each render
+  const Wrapper = createAppWrapper(); // 确保每次渲染都有一个新的包装器
   return render(ui, { wrapper: Wrapper, ...options });
 };
 
-// use this if you want to test user events
+// 如果您想测试用户事件，请使用此函数
 export const setup = (
   ui: ReactElement,
   options?: Omit<RenderOptions, 'wrapper'>

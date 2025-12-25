@@ -1,12 +1,12 @@
-# 🔗 Links:
-# Source file: https://github.com/obytes/react-native-template-obytes/blob/master/.github/workflows/expo-doctor.yml
+# 🔗 链接：
+# 源文件：https://github.com/obytes/react-native-template-obytes/blob/master/.github/workflows/expo-doctor.yml
 
-# ✍️ Description:
-# This workflow runs the expo doctor command to check if your project dependencies are aligned with the expo sdk version you are using.
-# Can be triggered manually from the Actions tab in your project.
-# Runs Also on pull requests and pushes to the main/master branch, but only if the `package.json` or `pnpm-lock.yaml` files have been changed.
+# ✍️ 描述：
+# 此工作流运行 expo doctor 命令来检查您的项目依赖是否与您使用的 expo sdk 版本保持一致。
+# 可以从项目的 Actions 选项卡手动触发。
+# 也会在拉取请求和推送到 main/master 分支时运行，但仅当 `package.json` 或 `pnpm-lock.yaml` 文件发生更改时。
 
-# 🚨 GITHUB SECRETS REQUIRED: NONE
+# 🚨 需要 GITHUB 密钥：无
 
 name: Expo Doctor (expo)
 
@@ -26,7 +26,7 @@ on:
 permissions:
   contents: read
   pull-requests: write
-  
+
 jobs:
   doctor:
     name: Expo Doctor (expo)

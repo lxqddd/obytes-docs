@@ -1,14 +1,14 @@
-# 🔗 Links:
-# Source file: https://github.com/obytes/react-native-template-obytes/blob/master/.github/workflows/e2e-android-eas-build.yml
-# End-to-end testing: https://starter.obytes.com/testing/end-to-end-testing/
+# 🔗 链接：
+# 源文件：https://github.com/obytes/react-native-template-obytes/blob/master/.github/workflows/e2e-android-eas-build.yml
+# 端到端测试：https://starter.obytes.com/testing/end-to-end-testing/
 
-# ✍️ Description:
-# This workflow is used to run end-to-end tests for EAS build on Android.
-# It uses Maestro Cloud to run tests on Android emulator.
-# It downloads the APK from EAS build and triggers the tests on Maestro Cloud with the downloaded APK.
+# ✍️ 描述：
+# 此工作流用于在 Android 上为 EAS 构建运行端到端测试。
+# 它使用 Maestro Cloud 在 Android 模拟器上运行测试。
+# 它从 EAS 构建下载 APK，并使用下载的 APK 在 Maestro Cloud 上触发测试。
 
-# 🚨 GITHUB SECRETS REQUIRED:
-# MAESTRO_CLOUD_API_KEY: API key for Maestro Cloud. You can get it from https://cloud.mobile.dev/ci-integration/github-actions#add-your-api-key-secret
+# 🚨 需要 GITHUB 密钥：
+# MAESTRO_CLOUD_API_KEY：Maestro Cloud 的 API 密钥。您可以从 https://cloud.mobile.dev/ci-integration/github-actions#add-your-api-key-secret 获取它
 
 name: E2E Tests EAS Build Android (Maestro + Github Action)
 

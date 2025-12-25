@@ -5,7 +5,7 @@ import { client } from '../common';
 import type { Post } from './types';
 
 type Response = Post[];
-type Variables = void; // as react-query-kit is strongly typed, we need to specify the type of the variables as void in case we don't need them
+type Variables = void; // 由于 react-query-kit 是强类型的，我们需要在不需要变量的情况下将变量类型指定为 void
 
 export const usePosts = createQuery<Response, Variables, AxiosError>({
   queryKey: ['posts'],

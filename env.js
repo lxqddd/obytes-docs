@@ -1,17 +1,17 @@
 /* eslint-env node */
 /*
- * Env file to load and validate env variables
- * Be cautious; this file should not be imported into your source folder.
- * We split the env variables into two parts:
- * 1. Client variables: These variables are used in the client-side code (src folder).
- * 2. Build-time variables: These variables are used in the build process (app.config.ts file).
- * Import this file into the `app.config.ts` file to use environment variables during the build process. The client variables can then be passed to the client-side using the extra field in the `app.config.ts` file.
- * To access the client environment variables in your `src` folder, you can import them from `@env`. For example: `import Env from '@env'`.
+ * 用于加载和验证环境变量的环境文件
+ * 请谨慎对待；此文件不应导入到您的源码文件夹中。
+ * 我们将环境变量分为两个部分：
+ * 1. 客户端变量：这些变量用于客户端代码（src 文件夹）。
+ * 2. 构建时变量：这些变量用于构建过程（app.config.ts 文件）。
+ * 将此文件导入到 `app.config.ts` 文件中，以便在构建过程中使用环境变量。客户端变量可以使用 `app.config.ts` 文件中的 extra 字段传递给客户端。
+ * 要在您的 `src` 文件夹中访问客户端环境变量，您可以从 `@env` 导入它们。例如：`import Env from '@env'`。
  */
 /**
- * 1st part: Import packages and Load your env variables
- * we use dotenv to load the correct variables from the .env file based on the APP_ENV variable (default is development)
- * APP_ENV is passed as an inline variable while executing the command, for example: APP_ENV=staging pnpm build:android
+ * 第一部分：导入包并加载您的环境变量
+ * 我们使用 dotenv 根据 APP_ENV 变量从 .env 文件中加载正确的变量（默认为 development）
+ * APP_ENV 在执行命令时作为内联变量传递，例如：APP_ENV=staging pnpm build:android
  */
 const z = require('zod');
 
@@ -26,25 +26,25 @@ require('dotenv').config({
 });
 
 /**
- * 2nd part: Define some static variables for the app
- * Such as: bundle id, package name, app name.
+ * 第二部分：为应用定义一些静态变量
+ * 例如：bundle id、包名、应用名称。
  *
- * You can add them to the .env file but we think it's better to keep them here as as we use prefix to generate this values based on the APP_ENV
- * for example: if the APP_ENV is staging, the bundle id will be com.obytes.staging
+ * 您可以将它们添加到 .env 文件中，但我们认为最好将它们保存在这里，因为我们使用前缀基于 APP_ENV 生成这些值
+ * 例如：如果 APP_ENV 是 staging，bundle id 将是 com.obytes.staging
  */
 
-// TODO: Replace these values with your own
+// TODO: 将这些值替换为您自己的值
 
-const BUNDLE_ID = 'com.obytes'; // ios bundle id
-const PACKAGE = 'com.obytes'; // android package name
-const NAME = 'ObytesApp'; // app name
-const EXPO_ACCOUNT_OWNER = 'obytes'; // expo account owner
-const EAS_PROJECT_ID = 'c3e1075b-6fe7-4686-aa49-35b46a229044'; // eas project id
-const SCHEME = 'obytesApp'; // app scheme
+const BUNDLE_ID = 'com.obytes'; // iOS bundle id
+const PACKAGE = 'com.obytes'; // Android 包名
+const NAME = 'ObytesApp'; // 应用名称
+const EXPO_ACCOUNT_OWNER = 'obytes'; // Expo 账户所有者
+const EAS_PROJECT_ID = 'c3e1075b-6fe7-4686-aa49-35b46a229044'; // EAS 项目 ID
+const SCHEME = 'obytesApp'; // 应用方案
 
 /**
- * We declare a function withEnvSuffix that will add a suffix to the variable name based on the APP_ENV
- * Add a suffix to variable env based on APP_ENV
+ * 我们声明一个 withEnvSuffix 函数，它会基于 APP_ENV 为变量名添加后缀
+ * 基于 APP_ENV 为环境变量添加后缀
  * @param {string} name
  * @returns  {string}
  */
@@ -54,20 +54,20 @@ const withEnvSuffix = (name) => {
 };
 
 /**
- * 2nd part: Define your env variables schema
- * we use zod to define our env variables schema
+ * 第二部分：定义您的环境变量schema
+ * 我们使用 zod 来定义我们的环境变量 schema
  *
- * we split the env variables into two parts:
- *    1. client: These variables are used in the client-side code (`src` folder).
- *    2. buildTime: These variables are used in the build process (app.config.ts file). You can think of them as server-side variables.
+ * 我们将环境变量分为两个部分：
+ *    1. client：这些变量用于客户端代码（`src` 文件夹）。
+ *    2. buildTime：这些变量用于构建过程（app.config.ts 文件）。您可以将它们视为服务端变量。
  *
- * Main rules:
- *    1. If you need your variable on the client-side, you should add it to the client schema; otherwise, you should add it to the buildTime schema.
- *    2. Whenever you want to add a new variable, you should add it to the correct schema based on the previous rule, then you should add it to the corresponding object (_clientEnv or _buildTimeEnv).
+ * 主要规则：
+ *    1. 如果您需要在客户端使用变量，您应该将其添加到 client schema；否则，您应该将其添加到 buildTime schema。
+ *    2. 每当您想要添加新变量时，您应该根据前面的规则将其添加到正确的 schema 中，然后将其添加到相应的对象（_clientEnv 或 _buildTimeEnv）中。
  *
- * Note: `z.string()` means that the variable exists and can be an empty string, but not `undefined`.
- * If you want to make the variable required, you should use `z.string().min(1)` instead.
- * Read more about zod here: https://zod.dev/?id=strings
+ * 注意：`z.string()` 意味着变量存在并且可以是空字符串，但不能是 `undefined`。
+ * 如果您希望变量是必需的，您应该使用 `z.string().min(1)` 代替。
+ * 在此处阅读更多关于 zod 的信息：https://zod.dev/?id=strings
  *
  */
 
@@ -79,7 +79,7 @@ const client = z.object({
   PACKAGE: z.string(),
   VERSION: z.string(),
 
-  // ADD YOUR CLIENT ENV VARS HERE
+  // 在此处添加您的客户端环境变量
   API_URL: z.string(),
   VAR_NUMBER: z.number(),
   VAR_BOOL: z.boolean(),
@@ -88,7 +88,7 @@ const client = z.object({
 const buildTime = z.object({
   EXPO_ACCOUNT_OWNER: z.string(),
   EAS_PROJECT_ID: z.string(),
-  // ADD YOUR BUILD TIME ENV VARS HERE
+  // 在此处添加您的构建时环境变量
   SECRET_KEY: z.string(),
 });
 
@@ -103,7 +103,7 @@ const _clientEnv = {
   PACKAGE: withEnvSuffix(PACKAGE),
   VERSION: packageJSON.version,
 
-  // ADD YOUR ENV VARS HERE TOO
+  // 在此处也添加您的环境变量
   API_URL: process.env.API_URL,
   VAR_NUMBER: Number(process.env.VAR_NUMBER),
   VAR_BOOL: process.env.VAR_BOOL === 'true',
@@ -115,15 +115,15 @@ const _clientEnv = {
 const _buildTimeEnv = {
   EXPO_ACCOUNT_OWNER,
   EAS_PROJECT_ID,
-  // ADD YOUR ENV VARS HERE TOO
+  // 在此处也添加您的环境变量
   SECRET_KEY: process.env.SECRET_KEY,
 };
 
 /**
- * 3rd part: Merge and Validate your env variables
- * We use zod to validate our env variables based on the schema we defined above
- * If the validation fails we throw an error and log the error to the console with a detailed message about missed variables
- * If the validation passes we export the merged and parsed env variables to be used in the app.config.ts file as well as a ClientEnv object to be used in the client-side code
+ * 第三部分：合并和验证您的环境变量
+ * 我们使用 zod 根据上面定义的 schema 来验证我们的环境变量
+ * 如果验证失败，我们会抛出一个错误，并在控制台记录一个关于缺失变量的详细消息
+ * 如果验证通过，我们会导出合并和解析后的环境变量，以在 app.config.ts 文件中使用，以及一个 ClientEnv 对象以在客户端代码中使用
  **/
 const _env = {
   ..._clientEnv,

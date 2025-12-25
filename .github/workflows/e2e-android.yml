@@ -1,16 +1,16 @@
-# 🔗 Links:
-# Source file: https://github.com/obytes/react-native-template-obytes/blob/master/.github/workflows/e2e-android.yml
-# End-to-end testing: https://starter.obytes.com/testing/end-to-end-testing/
+# 🔗 链接：
+# 源文件：https://github.com/obytes/react-native-template-obytes/blob/master/.github/workflows/e2e-android.yml
+# 端到端测试：https://starter.obytes.com/testing/end-to-end-testing/
 
-# ✍️ Description:
-# This workflow is used to run end-to-end tests on Android using Maestro.
-# As a first step, it will generate a test APK using the Gradle build and then upload it as an artifact.
-# A new job will be started to run the tests using the test APK generated in the previous job.
-# To test the app, we set up an Android emulator using the `reactivecircus/android-emulator-runner` action. This runner requires macOS as the operating system for the runner.
-# This workflow will be triggered on pull requests (PRs) with the label "android-test-github" or can be manually triggered from the Actions tab.
+# ✍️ 描述：
+# 此工作流用于使用 Maestro 在 Android 上运行端到端测试。
+# 作为第一步，它将使用 Gradle 构建生成测试 APK，然后将其作为工件上传。
+# 将启动一个新作业来使用前一个作业中生成的测试 APK 运行测试。
+# 为了测试应用，我们使用 `reactivecircus/android-emulator-runner` 动作设置 Android 模拟器。此运行器需要 macOS 作为运行器的操作系统。
+# 此工作流将在带有 "android-test-github" 标签的拉取请求（PR）上触发，或可以从 Actions 选项卡手动触发。
 #
 
-# 🚨 GITHUB SECRETS REQUIRED: None
+# 🚨 需要 GITHUB 密钥：无
 
 name: E2E Tests Android (Maestro + Github Action)
 

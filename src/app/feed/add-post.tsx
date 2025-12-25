@@ -36,7 +36,7 @@ export default function AddPost() {
             message: 'Post added successfully',
             type: 'success',
           });
-          // here you can navigate to the post list and refresh the list data
+          // 这里您可以导航到帖子列表并刷新列表数据
           //queryClient.invalidateQueries(usePosts.getKey());
         },
         onError: () => {

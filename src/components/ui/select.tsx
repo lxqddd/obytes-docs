@@ -225,7 +225,7 @@ export const Select = (props: SelectProps) => {
   );
 };
 
-// only used with react-hook-form
+// 仅与 react-hook-form 一起使用
 export function ControlledSelect<T extends FieldValues>(
   props: ControlledSelectProps<T>
 ) {
