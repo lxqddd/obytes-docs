@@ -1,85 +1,84 @@
 ---
-title: Environment Variables and Configuration
-description: Environment variables and configuration with validation and type-checking.
+title: 环境变量和配置
+description: 具有验证和类型检查的环境变量和配置。
 head:
   - tag: title
-    content: Environment Variables and Configuration | React Native / Expo Starter
+    content: 环境变量和配置 | React Native / Expo Starter
 ---
 
 import Code from '../../../components/code.astro';
 
-Managing environment variables in your project is an essential task, but it can also be challenging. That's why we have included a complete setup for environment variables in this project. This setup comes with validation and type-checking using the `zod` library.
+在您的项目中管理环境变量是一项基本任务，但也可能具有挑战性。这就是为什么我们在本项目中包含了完整的环境变量设置。此设置使用 `zod` 库提供验证和类型检查。
 
-All the code related to environment variables is located in the `env.js` and `src/lib/env.js` files. The `env.js` read the `APP_ENV` variable and loads the correct `.env` file, then defines the `zod` schema for the environment variables for client and build-time, parses the `_env` object, and returns the parsed object, or throws errors in case of invalid or missing variables.
+所有与环境变量相关的代码都位于 `env.js` 和 `src/lib/env.js` 文件中。`env.js` 读取 `APP_ENV` 变量并加载正确的 `.env` 文件，然后为客户端和构建时的环境变量定义 `zod` 模式，解析 `_env` 对象，并返回解析后的对象，或者在无效或缺失变量的情况下抛出错误。
 
-To increase security, we are splitting environment variables into two parts:
+为了提高安全性，我们将环境变量分为两个部分：
 
-- **Client Variables**: Variables that are safe to be exposed to the client and used in your `src` folder. These variables are passed to the client side using the `extra` configuration in the `app.config.ts` file.
-- **Build Time Variables**: Variables that we don't need on the client-side and are only used in the `app.config.ts`, for example `SENTRY_AUTH` to upload the source maps to Sentry.
+- **客户端变量**：可以在客户端安全暴露并在您的 `src` 文件夹中使用的变量。这些变量通过 `app.config.ts` 文件中的 `extra` 配置传递到客户端。
+- **构建时变量**：我们在客户端不需要的变量，仅在 `app.config.ts` 中使用，例如用于将源映射上传到 Sentry 的 `SENTRY_AUTH`。
 
-By using this pre-configured setup for environment variables, you can focus on building your project without worrying about managing and validating your environment variables.
+通过使用这个预配置的环境变量设置，您可以专注于构建项目，而无需担心管理和验证环境变量。
 
-This setup is highly inspired by [T3 Stack](https://create.t3.gg/) 👌
+此设置高度启发自 [T3 Stack](https://create.t3.gg/) 👌
 
-## Adding a new environment variable to the project.
+## 向项目添加新的环境变量
 
-To add a new environment variable to the project, follow these steps:
+要向项目添加新的环境变量，请按照以下步骤操作：
 
-1. Add the new environment variable to the correct `zod` schema inside the `env.js` file based on this simple rule :
-   If the variable is used in the `src` folder, add it to the `client` schema, otherwise add it to the `buildTime` schema.
+1. 根据这个简单规则，将新的环境变量添加到 `env.js` 文件中的正确 `zod` 模式：
+   如果变量在 `src` 文件夹中使用，则将其添加到 `client` 模式，否则添加到 `buildTime` 模式。
 
-This will ensure that the new variable is validated correctly. and make sure we are only sending the correct vars to the client side
-Here's an example:
+这将确保新变量得到正确验证，并确保我们只向客户端发送正确的变量。以下是一个示例：
 
 ```js title="env.js"
 const client = z.object({
   // ...
-  // add the new environment variable here/ accessible on the client side and build time(app.config.ts)
+  // 在此处添加新的环境变量 / 可在客户端和构建时访问 (app.config.ts)
   NEW_ENV_VAR: z.string(),
 });
 
 const buildTime = z.object({
   // ...
-  // add the new environment variable here / accessible only on build time(app.config.ts)
+  // 在此处添加新的环境变量 / 仅在构建时访问 (app.config.ts)
   NEW_SECRET_ENV: z.string(),
 });
 ```
 
-2. Add the new environment variable to the correct env object inside the `env.js`, `_clientEnv` for client variables and `_buildTimeEnv` for build time variables. Here's an example:
+2. 将新的环境变量添加到 `env.js` 中的正确环境对象，客户端变量使用 `_clientEnv`，构建时变量使用 `_buildTimeEnv`。以下是一个示例：
 
 ```js title="env.js"
 const _clientEnv = {
   // ...
-  // add the new environment variable here
+  // 在此处添加新的环境变量
   NEW_ENV_VAR: process.env.NEW_ENV_VAR,
 };
 
 const _buildTimeEnv = {
   // ...
-  // add the new environment variable here
+  // 在此处添加新的环境变量
   NEW_SECRET_ENV: process.env.NEW_SECRET_ENV,
 };
 ```
 
-3. Add the new environment variable to your `.env` files. Make sure to include it in all relevant files (`development`, `staging`, and `production`). Here's an example:
+3. 将新的环境变量添加到您的 `.env` 文件中。确保将其包含在所有相关文件中（`development`、`staging` 和 `production`）。以下是一个示例：
 
 ```bash title=".env.{APP_ENV}"
 # ...
-# add the new environment variable here
+# 在此处添加新的环境变量
 NEW_ENV_VAR=my-new-var
 ```
 
 :::note
-if you are not pushing env files to your repo(recomended), please make sure to check the [App releasing process](/ci-cd/app-releasing-process/#github-action-and-env-variables) to see how to create the env file on the fly before the prebuild script in the github actions.
+如果您不将环境文件推送到仓库（推荐做法），请务必查看[应用发布流程](/ci-cd/app-releasing-process/#github-action-and-env-variables)，了解如何在 GitHub Actions 中的预构建脚本之前动态创建环境文件。
 :::
 
-4. Make sure to run `pnpm prebuild` to load the new values.
+4. 确保运行 `pnpm prebuild` 来加载新值。
 
 ```bash
 pnpm prebuild
 ```
 
-5. The new environment variable is now ready to use in your project. You can access it in your code using the `Env` object, like this:
+5. 新的环境变量现在可以在您的项目中使用了。您可以使用 `Env` 对象在代码中访问它，如下所示：
 
 ```ts title="client.ts"
 import { Env } from '@env';
@@ -89,67 +88,67 @@ export const client = axios.create({
 });
 ```
 
-:::note[Important]
-Using `import { Env } from '@env';` will import the env from the `src/lib/env.js` file, which export client only env vars.
+:::note[重要]
+使用 `import { Env } from '@env';` 将从 `src/lib/env.js` 文件导入环境变量，该文件仅导出客户端环境变量。
 :::
 
-6. Use `APP_ENV` to load the correct `.env` file :
+6. 使用 `APP_ENV` 来加载正确的 `.env` 文件：
 
 ```bash
 APP_ENV=production pnpm start -cc
 ```
 
-As mentioned earlier, `zod` is used to validate environment variables at runtime and build time. If there are any missing or invalid variables, you'll see an error message with information on what needs to be fixed. Here's an example error message:
+如前所述，`zod` 用于在运行时和构建时验证环境变量。如果有任何缺失或无效的变量，您将看到包含需要修复信息错误消息。以下是一个错误消息示例：
 
 ```bash
 ❌ Invalid environment variables: { TEST: [ 'Required' ] }
 ❌ Missing variables in .env.development file, Make sure all required variables are defined in the .env.development file.
-💡 Tip: If you recently updated the .env.development file and the error still persists, try restarting the server with the -c flag to clear the cache.
+💡 提示：如果您最近更新了 .env.development 文件但错误仍然存在，请尝试使用 -c 标志重新启动服务器以清除缓存。
 ```
 
-:::note[Important]
-As `dotenv` handles variables as strings, you need to convert them to the correct type while reading them from the `process.env` object. check the example below for more details on how to use numbers and boolean values.
+:::note[重要]
+由于 `dotenv` 将变量处理为字符串，您需要在从 `process.env` 对象读取时将其转换为正确的类型。查看下面的示例以了解如何使用数字和布尔值的更多详细信息。
 :::
 
-## How it works
+## 工作原理
 
-#### ✅ Validate and parse environment variables
+#### ✅ 验证和解析环境变量
 
-If you take a look at the `env.js` file, you will notice that the file is split into three main parts as shown below:
+如果您查看 `env.js` 文件，您会注意到该文件分为三个主要部分，如下所示：
 
 <Code file="env.js" />
 
-**In the first part** We load the correct `.env` file based on the `APP_ENV` variable using `dotenv` package. If the `APP_ENV` variable is not defined, we default to `development`.
+**第一部分** 我们使用 `dotenv` 包根据 `APP_ENV` 变量加载正确的 `.env` 文件。如果未定义 `APP_ENV` 变量，我们默认为 `development`。
 
-we define some static variables for the app such as the app name, bundle Id and package. While these variables can be added to the `.env` files, we recommend keeping them in the `env.js` file as they are not meant to change. To handle different app variants, you can add suffixes to these variables using the `withEnvSuffix` function.
+我们为应用定义了一些静态变量，例如应用名称、包 ID 和包。虽然这些变量可以添加到 `.env` 文件中，但我们建议将它们保留在 `env.js` 文件中，因为它们不应该改变。要处理不同的应用变体，您可以使用 `withEnvSuffix` 函数为这些变量添加后缀。
 
-**In the second part**, we define the `zod` schema for the environment variables.
+**第二部分**，我们为环境变量定义 `zod` 模式。
 
-We split the environment variables into two parts:
+我们将环境变量分为两个部分：
 
-- **Client Variables**: Variables that are safe to be exposed to the client and used in the `src` folder.
+- **客户端变量**：可以在客户端安全暴露并在 `src` 文件夹中使用的变量。
 
-- **Build Time Variables**: Variables that we don't need on the client-side and are only used in the `app.config.ts`, for example, `SENTRY_AUTH` to upload the source maps to Sentry.
+- **构建时变量**：我们在客户端不需要的变量，仅在 `app.config.ts` 中使用，例如，用于将源映射上传到 Sentry 的 `SENTRY_AUTH`。
 
-These schemas are used to validate the environment variables. All the environment variables should be added to the correct schema.
+这些模式用于验证环境变量。所有环境变量都应添加到正确的模式中。
 
-We use the `z.infer` utility to infer the environment variables' types from the schema and use it to define the `_clientEnv` and `_buildTimeEnv` objects' type. This means that if you add a new environment variable to the schema, you will get a type error if you don't add it to the correct `_clientEnv` and `_buildTimeEnv` object as well, and vice versa.
+我们使用 `z.infer` 工具从模式推断环境变量的类型，并使用它来定义 `_clientEnv` 和 `_buildTimeEnv` 对象的类型。这意味着如果您向模式添加新的环境变量，如果不同时将其添加到正确的 `_clientEnv` 和 `_buildTimeEnv` 对象中，您将收到类型错误，反之亦然。
 
-**Finally**, in the third part, we merge variables to `_env`, pare it using the zod schema, and return the parsed object as well as the client environment variable, or throw errors in case of invalid or missing variables.
+**最后**，在第三部分，我们将变量合并到 `_env`，使用 zod 模式解析它，并返回解析后的对象以及客户端环境变量，或者在无效或缺失变量的情况下抛出错误。
 
-#### ✅ Use and send environment variables to the client
+#### ✅ 使用并向客户端发送环境变量
 
-Now it's as easy as importing `Env` , `ClientEnv` and `withEnvSuffix` from the `./env.js` file and use inside our `app.config.ts`, and finally sending client env vars to the client side using `extra` property.
+现在，只需从 `./env.js` 文件导入 `Env`、`ClientEnv` 和 `withEnvSuffix`，并在我们的 `app.config.ts` 中使用，最后使用 `extra` 属性将客户端环境变量发送到客户端即可。
 
 <Code file="app.config.ts" meta="{4,8-10}" />
 
-#### ✅ Type checking for client environment variables
+#### ✅ 客户端环境变量的类型检查
 
-Here, we added a separate file to export all variables that have already been passed in the `extra` property to the client side. We added a little bit of magic to make it type-safe and easy to use.
+在这里，我们添加了一个单独的文件来导出所有已经通过 `extra` 属性传递到客户端的变量。我们添加了一些魔法来使其类型安全且易于使用。
 
 <Code file="src/lib/env.js" />
 
-Now the environment variables are ready to use in your project. You can access them in your code by importing `Env` from `@env` and using it like this:
+现在环境变量已准备好在您的项目中使用。您可以通过从 `@env` 导入 `Env` 并按如下方式使用来在代码中访问它们：
 
 ```ts title="client.ts"
 import { Env } from '@env';
