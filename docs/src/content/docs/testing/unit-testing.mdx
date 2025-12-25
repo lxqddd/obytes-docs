@@ -1,78 +1,78 @@
 ---
-title: Unit Tests
-description: How to write unit tests using Jest and React Native Testing Library
+title: 单元测试
+description: 如何使用 Jest 和 React Native Testing Library 编写单元测试
 head:
   - tag: title
-    content: Unit Tests | React Native / Expo Starter
+    content: 单元测试 | React Native / Expo Starter
 ---
 
 import CodeBlock from '../../../components/code.astro';
 
-As we mention in the overview page of the testing section, we include the [Jest](https://jestjs.io/) testing framework and the [React Native Testing Library](https://callstack.github.io/react-native-testing-library/) for unit tests, along with mocks for most libraries.
+正如我们在测试部分概述页面中提到的，我们为单元测试提供了 [Jest](https://jestjs.io/) 测试框架和 [React Native Testing Library](https://callstack.github.io/react-native-testing-library/)，以及大多数库的模拟。
 
-The following guide is not a tutorial on how to write tests using React Native Testing Library and Jest, but rather a guide on how to write tests with this starter and some best practices to follow. If you are not familiar with testing, we recommend reading the [official documentation](https://jestjs.io/docs/en/getting-started) of Jest and [React Native Testing Library](https://callstack.github.io/react-native-testing-library/) to get familiar with them.
+以下指南不是关于如何使用 React Native Testing Library 和 Jest 编写测试的教程，而是关于如何使用这个入门模板编写测试以及需要遵循的一些最佳实践。如果您不熟悉测试，我们建议阅读 Jest 的[官方文档](https://jestjs.io/docs/en/getting-started)和 [React Native Testing Library](https://callstack.github.io/react-native-testing-library/) 来熟悉它们。
 
-Also worth mentioning that we should aim to test the following:
+还值得一提的是，我们应该针对以下内容编写测试：
 
-- **Business logic**: Test component and function utilities that contain business logic. Form validation, data manipulation and calculations, etc.
+- **业务逻辑**：测试包含业务逻辑的组件和函数工具。表单验证、数据操作和计算等。
 
-- **Complex components**: Test components that contain complex logic. For example, components that contain a lot of conditional rendering, or components that contain a lot of state management logic.
+- **复杂组件**：测试包含复杂逻辑的组件。例如，包含大量条件渲染的组件，或包含大量状态管理逻辑的组件。
 
-## Writing tests
+## 编写测试
 
-Let's start by writing a simple test for our login screen. We will test the following login form component:
+让我们开始为登录屏幕编写一个简单的测试。我们将测试以下登录表单组件：
 
 <CodeBlock file="./src/components/login-form.tsx" />
 
 :::tip
 
-To make it easier to write tests, we are separating the form from any other logic related to API calls, navigation, etc. This way, we can test the form logic without having to worry about other things.
+为了更容易编写测试，我们将表单与其他逻辑（如 API 调用、导航等）分离。这样，我们就可以测试表单逻辑，而不必担心其他事情。
 
-As you may have noticed, writing code with the intention of writing tests for it will assist us in producing cleaner code.
+您可能已经注意到，带着编写测试的目的来编写代码将帮助我们产生更清洁的代码。
 :::
 
-Now, let's write a test for the login form component. We will test the following:
+现在，让我们为登录表单组件编写一个测试。我们将测试以下内容：
 
-- The form renders correctly.
-- Show the correct error messages on invalid or missing data.
-- Submit the form with valid data and make sure that the `onSubmit` function is called with the correct data.
+- 表单正确渲染。
+- 在无效或缺失数据时显示正确的错误消息。
+- 使用有效数据提交表单，并确保使用正确的数据调用 `onSubmit` 函数。
 
-First, let's create a new file called `login-form.test.tsx` in the `src/screens/login` directory. Then, add the following code to it:
+首先，让我们在 `src/screens/login` 目录中创建一个名为 `login-form.test.tsx` 的新文件。然后，向其中添加以下代码：
 
 <CodeBlock file="./src/components/login-form.test.tsx" />
 
-As you may notice from the code, we are importing a bunch of things from the `@/lib/test-utils` directory. This is a simple file that exports everything from the `@testing-library/react-native` library and overrides the `render` function to wrap the component with the providers we need. This way, we don't have to import the providers in every test file.
+您可能从代码中注意到，我们从 `@/lib/test-utils` 目录导入了很多东西。这是一个简单的文件，它从 `@testing-library/react-native` 库导出所有内容，并覆盖 `render` 函数以使用我们需要的提供者包装组件。这样，我们就不必在每个测试文件中导入提供者。
 
 :::tip
-You can update this file to add any other providers you need to wrap your components with as well as any other utility functions you need to use in your tests.
+您可以更新此文件以添加任何其他需要包装组件的提供者以及在测试中需要使用的其他工具函数。
 
 <CodeBlock file="src/lib/test-utils.tsx" />
 
-use `setup` function in case you need to test interactions with the component. It returns a user (userEvent) object that you can use to interact with the component.
+如果您需要测试与组件的交互，请使用 `setup` 函数。它返回一个用户（userEvent）对象，您可以使用它与组件进行交互。
 :::
 
-Now that we have our test file ready, let's run it and see what happens. To run the test, run the following command:
+现在我们的测试文件已经准备好了，让我们运行它看看会发生什么。要运行测试，请运行以下命令：
 
 ```bash
 pnpm  test
 pnpm test:watch # To run the tests in watch mode
 ```
 
-## Tests on CI with GitHub actions
+## 使用 GitHub Actions 在 CI 上运行测试
 
-It's important to run tests on CI in addition to local testing. This ensures that our code doesn't break when we push it to Github. We have added a GitHub action that runs tests for every push to the main branch or new pull request. It reports the results to GitHub through annotations and provides a summary of the tests along with coverage.
+除了本地测试之外，在 CI 上运行测试也很重要。这确保了我们在推送到 GitHub 时代码不会出现问题。我们添加了一个 GitHub Action，它会在每次推送到主分支或创建新拉取请求时运行测试。它通过注解向 GitHub 报告结果，并提供测试摘要和覆盖率。
 
-Here is an example of the output of the GitHub action:
+以下是 GitHub Action 输出的示例：
 
 ![GitHub action output](https://github.com/obytes/react-native-template-obytes/assets/11137944/081896b2-bf74-490b-9ad5-da8e2bbc5c88)
 
 :::tip
-Aiming for 100% test coverage is not always a good idea and doesn't always make sense. Same with testing views and components that only render a UI
+追求 100% 测试覆盖率并不总是好的想法，也并不总是合理的。测试只渲染 UI 的视图和组件也是如此
 :::
 
-## More tests
+## 更多测试
 
-For more complex logic and components, we recommend taking a look at this amazing project which provides a lot of examples and best practices for testing React Native apps using React Native Testing Library and Jest:
+对于更复杂的逻辑和组件，我们推荐查看这个优秀的项目，它提供了使用 React Native Testing Library 和 Jest 测试 React Native 应用的许多示例和最佳实践：
 
 [⚡️ React Native Testing](https://github.com/vanGalilea/react-native-testing/)
 
